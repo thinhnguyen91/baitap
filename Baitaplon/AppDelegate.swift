@@ -24,6 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
         self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
+        
         //init navigation controller
         // init LoginVC
         
