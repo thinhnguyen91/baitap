@@ -6,6 +6,9 @@
 //  Copyright © 2016 AsianTech. All rights reserved.
 //
 
+
+
+
 import UIKit
 
 class SettingVC: UIViewController {
