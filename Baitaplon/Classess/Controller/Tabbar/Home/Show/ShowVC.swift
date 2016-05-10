@@ -11,7 +11,7 @@ import MapKit
 class ShowVC: UIViewController {
     var imageArray = [UIImage(named: "nhahang"), UIImage(named: "image0"), UIImage(named: "image1"),UIImage(named: "image2"),UIImage(named: "image1"),UIImage(named: "image0")]
     var imageViews:[UIImageView] = []
-    var lists: List!
+    var place: Place!
     @IBOutlet weak var buttonR: UIButton!
     @IBOutlet weak var buttonL: UIButton!
     @IBOutlet weak var Viewscrollimage: UIView!
@@ -64,8 +64,8 @@ class ShowVC: UIViewController {
         }
         scrollImage.contentSize = CGSizeMake(scrollImage.frame.size.width * CGFloat(imageArray.count) , scrollImage.frame.size.height)
         
-        self.labelName.text = lists.name_
-        self.lableAdd.text = lists.addess_
+        self.labelName.text = place.name_
+        self.lableAdd.text = place.addess_
         
         //mapview
         
