@@ -11,8 +11,8 @@ import MapKit
 class MapVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
-    var annotations:Array = [List]()
-    
+   
+  
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -20,13 +20,74 @@ class MapVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
-        // map
+        mapView.delegate = self
         zoomToRegion()
-  
+        
+        //pin
+        let annotations = getMapAnnotations()
+        mapView.addAnnotations(annotations)
+        //print("\(mapView.addAnnotations(annotations))")
+     
     }
     
-    //MARK:- Zoom to region
+    //MARK:- mapview
+    func getMapAnnotations() -> [Place] {
+        
+        var annotations:Array = [Place]()
+        
+        for var i = 0 ; i <= 20 ; i++ {
+            
+            let place = Place(title: "Nha hang \(i)",
+                locationName: " Da nang",
+                discipline: "Restaurant30",
+                coordinate: CLLocationCoordinate2D(latitude:16.0718911 - 0.01 * Double(i) , longitude:108.2228753 - 0.001 * Double(i) ))
+            
+            annotations.append(place)
+        }
+        
+        return annotations
+    }
     
+    func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+        
+        if(annotation is MKUserLocation) {
+            return nil
+        }
+       let reuseId = "Restaurant30"
+        
+        var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
+        
+        if anView == nil {
+            anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
+            anView!.image = UIImage(named:"Restaurant30")
+            anView!.canShowCallout = true
+
+            anView!.calloutOffset = CGPoint(x: 0, y: 0)
+            
+            let button : UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+            button.setImage(UIImage(named: "next")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
+            button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
+            anView!.rightCalloutAccessoryView = button
+            
+            let buttonlift: UIButton = UIButton(type: UIButtonType.Custom)
+            buttonlift.frame.size.width = 44
+            buttonlift.frame.size.height = 44
+            buttonlift.setImage(UIImage(named: "nhahang")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
+            anView!.leftCalloutAccessoryView = buttonlift
+        }
+        else {
+            
+            anView!.annotation = annotation
+        }
+        
+        return anView
+    }
+  
+    func buttonClicked(sender: UIButton){
+        print(sender.tag)
+    }
+
+       // map zom
     func zoomToRegion() {
         
         let location = CLLocationCoordinate2D(latitude: 16.0718911, longitude: 108.2228753)
@@ -34,7 +95,7 @@ class MapVC: UIViewController {
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
     }
-    
+
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
@@ -47,8 +108,8 @@ class MapVC: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
- 
+    
 }
 extension MapVC: MKMapViewDelegate {
     
-}
+    }
