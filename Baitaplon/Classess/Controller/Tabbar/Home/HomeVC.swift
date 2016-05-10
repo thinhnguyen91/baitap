@@ -7,10 +7,10 @@
 //
 
 import UIKit
-
+import MapKit
 class HomeVC: UIViewController {
     var tabBar: UITabBar?
-    var items = [List]()
+    var places = [Place]()
     @IBOutlet weak var tableView: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,14 +24,17 @@ class HomeVC: UIViewController {
         
         for var i = 0 ; i <= 20 ; i++ {
             
-            let list = List()
+            let place = Place(title: "",
+                locationName: "",
+                discipline: "",
+                coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
             
-            list.name_ = "Nhà Hàng \(i+1)"
-            list.avatar_ = "nhahang"
-            list.addess_ = "Đà Nẵng"
-            list.start_ = "star30"
+            place.name_ = "Nhà Hàng \(i+1)"
+            place.avatar_ = "nhahang"
+            place.addess_ = "Đà Nẵng"
+            place.start_ = "star30"
             
-            items.append(list)
+            places.append(place)
         }
         //tabbar
         tabBar = self.tabBarController!.tabBar
@@ -53,13 +56,13 @@ class HomeVC: UIViewController {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return self.items.count
+        return self.places.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:ListtableView = self.tableView.dequeueReusableCellWithIdentifier("cell") as! ListtableView
-        let list = items[indexPath.row]
+        let list = places[indexPath.row]
         let imageview: UIImage = UIImage(named: list.avatar_)!
         let imagestar: UIImage = UIImage(named: list.start_)!
         
@@ -79,9 +82,9 @@ class HomeVC: UIViewController {
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableView.deselectRowAtIndexPath(indexPath, animated: true)
         
-        let item = items[indexPath.row]
+        let item = places[indexPath.row]
         let myshowVC = ShowVC(nibName: "ShowVC", bundle: nil)
-        myshowVC.lists = item
+        myshowVC.place = item
         self.navigationController?.pushViewController(myshowVC, animated: true)
         
         print("Cell \(indexPath.row) of Section \(indexPath.section) ")
