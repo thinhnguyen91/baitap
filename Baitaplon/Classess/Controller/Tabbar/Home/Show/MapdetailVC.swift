@@ -21,7 +21,7 @@ class MapdetailVC: UIViewController {
             latitude: 16.0755968,
             longitude: 108.2339355 )
         
-        let span = MKCoordinateSpanMake(0.05, 0.05)
+        let span = MKCoordinateSpanMake(0.01, 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
         mapdetailview.setRegion(region, animated: true)
         
@@ -30,22 +30,31 @@ class MapdetailVC: UIViewController {
         annotation.title = "Asia Tech,Đà Nẵng"
         annotation.subtitle = "Việt Nam"
         mapdetailview.addAnnotation(annotation)
+        mapdetailview.delegate = self
     }
-
+    func mapView(mapView: MKMapView,
+        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+            
+            let annotationReuseId = "Restaurant30"
+            var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationReuseId)
+            if anView == nil {
+                anView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationReuseId)
+            } else {
+                anView!.annotation = annotation
+            }
+            anView!.image = UIImage(named: "Restaurant30")
+            anView!.backgroundColor = UIColor.clearColor()
+            anView!.canShowCallout = true
+            return anView
+            
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
+}
+extension MapdetailVC: MKMapViewDelegate {
+    
 }
