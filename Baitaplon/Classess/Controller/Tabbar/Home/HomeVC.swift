@@ -24,15 +24,15 @@ class HomeVC: UIViewController {
         
         for var i = 0 ; i <= 20 ; i++ {
             
-            let place = Place(title: "",
-                locationName: "",
+            let place = Place(title: "Nhà Hàng \(i)",
+                locationName: "Đà Nẵng",
                 discipline: "",
                 coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
             
-            place.name_ = "Nhà Hàng \(i+1)"
-            place.avatar_ = "nhahang"
-            place.addess_ = "Đà Nẵng"
-            place.start_ = "star30"
+           // place.name = "Nhà Hàng \(i+1)"
+            place.avatar  = "nhahang"
+           // place.addess = "Đà Nẵng"
+            place.start = "star30"
             
             places.append(place)
         }
@@ -63,12 +63,12 @@ class HomeVC: UIViewController {
         
         let cell:ListtableView = self.tableView.dequeueReusableCellWithIdentifier("cell") as! ListtableView
         let list = places[indexPath.row]
-        let imageview: UIImage = UIImage(named: list.avatar_)!
-        let imagestar: UIImage = UIImage(named: list.start_)!
+        let imageview: UIImage = UIImage(named: list.avatar)!
+        let imagestar: UIImage = UIImage(named: list.start)!
         
-        cell.nameList.text = list.name_
+        cell.nameList.text = list.title
         cell.imageList.image = imageview
-        cell.addessList.text = list.addess_
+        cell.addessList.text = list.locationName
         cell.startList.image = imagestar
         
         return cell
