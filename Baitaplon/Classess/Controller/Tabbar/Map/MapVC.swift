@@ -12,7 +12,7 @@ class MapVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
    
-  
+  var places = [Place]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,8 +26,7 @@ class MapVC: UIViewController {
         //pin
         let annotations = getMapAnnotations()
         mapView.addAnnotations(annotations)
-        //print("\(mapView.addAnnotations(annotations))")
-     
+
     }
     
     //MARK:- mapview
@@ -41,6 +40,7 @@ class MapVC: UIViewController {
                 locationName: " Da nang",
                 discipline: "Restaurant30",
                 coordinate: CLLocationCoordinate2D(latitude:16.0718911 - 0.01 * Double(i) , longitude:108.2228753 - 0.001 * Double(i) ))
+            place.index = i
             
             annotations.append(place)
         }
@@ -64,7 +64,11 @@ class MapVC: UIViewController {
 
             anView!.calloutOffset = CGPoint(x: 0, y: 0)
             
+            let place = annotation as! Place
+            
             let button : UIButton = UIButton(type: UIButtonType.DetailDisclosure)
+            button.tag = place.index
+            
             button.setImage(UIImage(named: "next")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
             button.addTarget(self, action: "buttonClicked:", forControlEvents: UIControlEvents.TouchUpInside)
             anView!.rightCalloutAccessoryView = button
@@ -82,9 +86,18 @@ class MapVC: UIViewController {
         
         return anView
     }
+    
+    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView){
   
+        
+    }
+    
     func buttonClicked(sender: UIButton){
-        print(sender.tag)
+       print(sender.tag)
+        
+        let myshow = ShowVC(nibName: "ShowVC", bundle: nil)
+        self.navigationController?.pushViewController(myshow, animated: true)
+
     }
 
        // map zom
