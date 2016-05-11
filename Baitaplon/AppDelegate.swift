@@ -67,7 +67,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
        
         tabbar = UITabBarController()
         tabbar!.viewControllers = [nav1, nav2, nav3, nav4]
-        tabbar!.tabBar.barTintColor = UIColor.orangeColor()
+        tabbar!.tabBar.barTintColor = uicolorFromHex(16729344)
         tabbar!.tabBar.tintColor = uicolorFromHex(16729344)
         
         self.window?.rootViewController = navigation

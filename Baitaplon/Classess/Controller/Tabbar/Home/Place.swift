@@ -9,10 +9,10 @@
 import UIKit
 import MapKit
 class Place: NSObject, MKAnnotation{
-    var name_: String = ""
-    var avatar_: String = ""
-    var addess_: String = ""
-    var start_: String = ""
+   
+    var avatar: String = ""
+    var start: String = ""
+    
     var image: UIImage?
     let title: String?
     let locationName: String

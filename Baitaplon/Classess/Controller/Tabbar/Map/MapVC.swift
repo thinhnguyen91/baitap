@@ -87,6 +87,11 @@ class MapVC: UIViewController {
         return anView
     }
     
+    func mapView(Mapa: MKMapView!, annotation: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
+       
+        if control == annotation.rightCalloutAccessoryView {
+                  }
+    }
     func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView){
   
         
