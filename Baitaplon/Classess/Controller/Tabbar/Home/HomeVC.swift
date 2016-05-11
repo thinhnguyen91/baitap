@@ -28,10 +28,8 @@ class HomeVC: UIViewController {
                 locationName: "Đà Nẵng",
                 discipline: "",
                 coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
-            
-           // place.name = "Nhà Hàng \(i+1)"
+   
             place.avatar  = "nhahang"
-           // place.addess = "Đà Nẵng"
             place.start = "star30"
             
             places.append(place)

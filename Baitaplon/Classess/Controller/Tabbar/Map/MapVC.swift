@@ -12,7 +12,7 @@ class MapVC: UIViewController {
 
     @IBOutlet weak var mapView: MKMapView!
    
-  var places = [Place]()
+    var places = [Place]()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -86,21 +86,19 @@ class MapVC: UIViewController {
         
         return anView
     }
-    
-    func mapView(Mapa: MKMapView!, annotation: MKAnnotationView, calloutAccessoryControlTapped control: UIControl) {
-       
-        if control == annotation.rightCalloutAccessoryView {
-                  }
-    }
-    func mapView(mapView: MKMapView, didSelectAnnotationView view: MKAnnotationView){
-  
-        
-    }
+
     
     func buttonClicked(sender: UIButton){
        print(sender.tag)
         
         let myshow = ShowVC(nibName: "ShowVC", bundle: nil)
+        let place = Place(title: "Nha hang ",
+            locationName: " Da nang",
+            discipline: "Restaurant30",
+            coordinate: CLLocationCoordinate2D(latitude:16.0718911 , longitude:108.2228753 ))
+        
+        myshow.place = place
+
         self.navigationController?.pushViewController(myshow, animated: true)
 
     }

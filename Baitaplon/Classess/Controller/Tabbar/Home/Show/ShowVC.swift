@@ -52,7 +52,7 @@ class ShowVC: UIViewController {
         self.title = "SHOW"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-  
+        
         //scrollimage
         scrollImage.showsHorizontalScrollIndicator = false
         scrollImage.delegate = self
@@ -73,17 +73,37 @@ class ShowVC: UIViewController {
         let location = CLLocationCoordinate2D(
             latitude: 16.0755968,
             longitude: 108.2339355 )
-    
+        
         let span = MKCoordinateSpanMake(0.009, 0.009)
         let region = MKCoordinateRegion(center: location, span: span)
         mapview.setRegion(region, animated: true)
-     
+        
         let annotation = MKPointAnnotation()
         annotation.coordinate = location
         annotation.title = "Asia Tech,Đà Nẵng"
         annotation.subtitle = "Việt Nam"
         mapview.addAnnotation(annotation)
+        mapview.delegate = self
     }
+    func mapView(mapView: MKMapView,
+        viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
+            
+            if (annotation is MKUserLocation) { return nil }
+            
+            let reuseID = "Restaurant30"
+            var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseID)
+            
+            if anView != nil {
+                anView!.annotation = annotation
+            } else {
+                anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseID)
+                
+                anView!.image = UIImage(named:"Restaurant30")
+            }
+            
+            return anView
+    }
+
     // pagecontrol
     func configurePageControl() {
         
@@ -107,6 +127,6 @@ class ShowVC: UIViewController {
     }
     
 }
-extension ShowVC: UIScrollViewDelegate {
+extension ShowVC: UIScrollViewDelegate,MKMapViewDelegate {
     
 }
