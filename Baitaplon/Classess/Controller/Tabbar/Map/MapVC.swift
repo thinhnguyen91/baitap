@@ -92,12 +92,13 @@ class MapVC: UIViewController {
        print(sender.tag)
         
         let myshow = ShowVC(nibName: "ShowVC", bundle: nil)
-        let place = Place(title: "Nha hang ",
+        
+        let item = Place(title: "Nha Hang \(sender.tag) ",
             locationName: " Da nang",
             discipline: "Restaurant30",
             coordinate: CLLocationCoordinate2D(latitude:16.0718911 , longitude:108.2228753 ))
         
-        myshow.place = place
+        myshow.place = item
 
         self.navigationController?.pushViewController(myshow, animated: true)
 
