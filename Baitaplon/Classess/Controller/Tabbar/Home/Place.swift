@@ -18,6 +18,7 @@ class Place: NSObject, MKAnnotation{
     let locationName: String
     let discipline: String
     let coordinate: CLLocationCoordinate2D
+    var index = 0
     
     init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
         self.title = title
