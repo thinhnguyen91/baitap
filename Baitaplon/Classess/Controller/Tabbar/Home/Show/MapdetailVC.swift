@@ -9,6 +9,7 @@
 import UIKit
 import MapKit
 class MapdetailVC: UIViewController {
+    var place: Place!
     @IBOutlet weak var mapdetailview: MKMapView!
 
     override func viewDidLoad() {
@@ -27,8 +28,9 @@ class MapdetailVC: UIViewController {
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = location
-        annotation.title = "Asia Tech,Đà Nẵng"
-        annotation.subtitle = "Việt Nam"
+        annotation.title = "Nha Hang "
+
+        annotation.subtitle = "Da Nang"
         mapdetailview.addAnnotation(annotation)
         mapdetailview.delegate = self
     }
