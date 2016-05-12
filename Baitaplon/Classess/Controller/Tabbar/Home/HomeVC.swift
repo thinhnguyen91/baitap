@@ -25,7 +25,7 @@ class HomeVC: UIViewController {
         for var i = 0 ; i <= 20 ; i++ {
             
             let place = Place(title: "Nhà Hàng \(i)",
-                locationName: "Đà Nẵng",
+                locationName: "Đà Nẵng \(i)",
                 discipline: "",
                 coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
    

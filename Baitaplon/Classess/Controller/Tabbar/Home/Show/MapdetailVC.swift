@@ -10,6 +10,7 @@ import UIKit
 import MapKit
 class MapdetailVC: UIViewController {
     var place: Place!
+    var mypapvc: MapVC!
     @IBOutlet weak var mapdetailview: MKMapView!
 
     override func viewDidLoad() {
@@ -47,6 +48,13 @@ class MapdetailVC: UIViewController {
             anView!.image = UIImage(named: "Restaurant30")
             anView!.backgroundColor = UIColor.clearColor()
             anView!.canShowCallout = true
+            
+            let buttonlift: UIButton = UIButton(type: UIButtonType.Custom)
+            buttonlift.frame.size.width = 44
+            buttonlift.frame.size.height = 44
+            buttonlift.setImage(UIImage(named: "nhahang")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
+            anView!.leftCalloutAccessoryView = buttonlift
+
             return anView
             
     }
