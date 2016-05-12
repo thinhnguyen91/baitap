@@ -94,7 +94,7 @@ class MapVC: UIViewController {
         let myshow = ShowVC(nibName: "ShowVC", bundle: nil)
         
         let item = Place(title: "Nha Hang \(sender.tag) ",
-            locationName: " Da nang \(sender.tag)",
+            locationName: "Da nang \(sender.tag) ",
             discipline: "Restaurant30",
             coordinate: CLLocationCoordinate2D(latitude:16.0718911 , longitude:108.2228753 ))
         
