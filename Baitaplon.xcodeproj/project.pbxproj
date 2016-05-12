@@ -28,9 +28,9 @@
 		FABA7D151CCF23B000289B35 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABA7D131CCF23B000289B35 /* LoginVC.xib */; settings = {ASSET_TAGS = (); }; };
 		FABA7D191CCF265500289B35 /* FovariteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA7D171CCF265500289B35 /* FovariteVC.swift */; settings = {ASSET_TAGS = (); }; };
 		FABA7D1A1CCF265500289B35 /* FovariteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABA7D181CCF265500289B35 /* FovariteVC.xib */; settings = {ASSET_TAGS = (); }; };
+		FAF4F7A71CE41E58009FD9C0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4F7A61CE41E58009FD9C0 /* Place.swift */; settings = {ASSET_TAGS = (); }; };
 		FAFA2EC01CD0732B003B9D7B /* ListtableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2EBE1CD0732B003B9D7B /* ListtableView.swift */; settings = {ASSET_TAGS = (); }; };
 		FAFA2EC11CD0732B003B9D7B /* ListtableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFA2EBF1CD0732B003B9D7B /* ListtableView.xib */; settings = {ASSET_TAGS = (); }; };
-		FAFA2EC31CD0752B003B9D7B /* List.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2EC21CD0752B003B9D7B /* List.swift */; settings = {ASSET_TAGS = (); }; };
 		FAFA2EC71CD0B7CF003B9D7B /* SingletionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2EC61CD0B7CF003B9D7B /* SingletionClass.swift */; settings = {ASSET_TAGS = (); }; };
 		FAFA2ECB1CD0CCC3003B9D7B /* ShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2EC91CD0CCC3003B9D7B /* ShowVC.swift */; settings = {ASSET_TAGS = (); }; };
 		FAFA2ECC1CD0CCC3003B9D7B /* ShowVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFA2ECA1CD0CCC3003B9D7B /* ShowVC.xib */; settings = {ASSET_TAGS = (); }; };
@@ -60,9 +60,9 @@
 		FABA7D131CCF23B000289B35 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		FABA7D171CCF265500289B35 /* FovariteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FovariteVC.swift; sourceTree = "<group>"; };
 		FABA7D181CCF265500289B35 /* FovariteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FovariteVC.xib; sourceTree = "<group>"; };
+		FAF4F7A61CE41E58009FD9C0 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 		FAFA2EBE1CD0732B003B9D7B /* ListtableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListtableView.swift; sourceTree = "<group>"; };
 		FAFA2EBF1CD0732B003B9D7B /* ListtableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListtableView.xib; sourceTree = "<group>"; };
-		FAFA2EC21CD0752B003B9D7B /* List.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = List.swift; sourceTree = "<group>"; };
 		FAFA2EC61CD0B7CF003B9D7B /* SingletionClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingletionClass.swift; path = ../SingletionClass.swift; sourceTree = "<group>"; };
 		FAFA2EC91CD0CCC3003B9D7B /* ShowVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowVC.swift; path = Baitaplon/Classess/Controller/Tabbar/Home/Show/ShowVC.swift; sourceTree = SOURCE_ROOT; };
 		FAFA2ECA1CD0CCC3003B9D7B /* ShowVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShowVC.xib; path = Baitaplon/Classess/Controller/Tabbar/Home/Show/ShowVC.xib; sourceTree = SOURCE_ROOT; };
@@ -163,11 +163,11 @@
 		FABA7CE81CCF1FEB00289B35 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				FAF4F7A61CE41E58009FD9C0 /* Place.swift */,
 				FABA7CE91CCF1FEB00289B35 /* HomeVC.swift */,
 				FABA7CEA1CCF1FEB00289B35 /* HomeVC.xib */,
 				FAFA2EBE1CD0732B003B9D7B /* ListtableView.swift */,
 				FAFA2EBF1CD0732B003B9D7B /* ListtableView.xib */,
-				FAFA2EC21CD0752B003B9D7B /* List.swift */,
 				FAFA2EC81CD0CB9E003B9D7B /* Show */,
 			);
 			path = Home;
@@ -346,11 +346,11 @@
 				FABA7D101CCF239100289B35 /* ForgotPasswordVC.swift in Sources */,
 				FAB8409A1CDB5840008F92E1 /* MapdetailVC.swift in Sources */,
 				FAFA2EC01CD0732B003B9D7B /* ListtableView.swift in Sources */,
-				FAFA2EC31CD0752B003B9D7B /* List.swift in Sources */,
 				FABA7D141CCF23B000289B35 /* LoginVC.swift in Sources */,
 				FAB58EA11CDC3BBF00C1EDFA /* Station.swift in Sources */,
 				FABA7CFD1CCF1FEB00289B35 /* SettingVC.swift in Sources */,
 				FABA7D191CCF265500289B35 /* FovariteVC.swift in Sources */,
+				FAF4F7A71CE41E58009FD9C0 /* Place.swift in Sources */,
 				FABA7D0B1CCF22F300289B35 /* RegisterVC.swift in Sources */,
 				FAFA2EC71CD0B7CF003B9D7B /* SingletionClass.swift in Sources */,
 				FAFA2ECB1CD0CCC3003B9D7B /* ShowVC.swift in Sources */,
