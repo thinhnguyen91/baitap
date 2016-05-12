@@ -11,11 +11,13 @@ import MapKit
 class MapdetailVC: UIViewController {
     var place: Place!
     var mypapvc: MapVC!
+    var myshow: ShowVC!
+    var myhome: HomeVC!
     @IBOutlet weak var mapdetailview: MKMapView!
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         //mapview
         
@@ -29,11 +31,13 @@ class MapdetailVC: UIViewController {
         
         let annotation = MKPointAnnotation()
         annotation.coordinate = location
-        annotation.title = "Nha Hang "
-
-        annotation.subtitle = "Da Nang"
+        
+        annotation.title = place.title
+        annotation.subtitle = place.subtitle
+        
         mapdetailview.addAnnotation(annotation)
         mapdetailview.delegate = self
+        
     }
     func mapView(mapView: MKMapView,
         viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -54,7 +58,7 @@ class MapdetailVC: UIViewController {
             buttonlift.frame.size.height = 44
             buttonlift.setImage(UIImage(named: "nhahang")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
             anView!.leftCalloutAccessoryView = buttonlift
-
+            
             return anView
             
     }
@@ -63,7 +67,7 @@ class MapdetailVC: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
-
+    
 }
 extension MapdetailVC: MKMapViewDelegate {
     

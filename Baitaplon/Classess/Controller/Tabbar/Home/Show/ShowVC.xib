@@ -2,6 +2,8 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES">
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+        <capability name="Alignment constraints to the first baseline" minToolsVersion="6.0"/>
+        <capability name="Alignment constraints with different attributes" minToolsVersion="5.1"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
     <objects>
@@ -46,10 +48,9 @@
                                     </constraints>
                                 </scrollView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4gP-9f-sih">
-                                    <rect key="frame" x="335" y="95" width="21" height="28"/>
+                                    <rect key="frame" x="335" y="87" width="21" height="36"/>
                                     <constraints>
-                                        <constraint firstAttribute="height" constant="28" id="OTz-M6-HQ7"/>
-                                        <constraint firstAttribute="width" constant="21" id="Pfm-tP-VKv"/>
+                                        <constraint firstAttribute="width" constant="21" id="YoH-q7-B7Z"/>
                                     </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="20"/>
                                     <state key="normal" title="&gt;"/>
@@ -58,7 +59,10 @@
                                     </connections>
                                 </button>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gNn-Hc-5gB">
-                                    <rect key="frame" x="18" y="93" width="19" height="30"/>
+                                    <rect key="frame" x="19" y="94" width="21" height="29"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="21" id="Uax-fn-JQV"/>
+                                    </constraints>
                                     <fontDescription key="fontDescription" type="system" pointSize="21"/>
                                     <state key="normal" title="&lt;"/>
                                     <connections>
@@ -69,17 +73,19 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
                                 <constraint firstItem="eiM-mI-PeN" firstAttribute="centerX" secondItem="E1q-mT-KTZ" secondAttribute="centerX" id="3lY-hg-v7Y"/>
-                                <constraint firstItem="gNn-Hc-5gB" firstAttribute="leading" secondItem="E1q-mT-KTZ" secondAttribute="leadingMargin" constant="10" id="Dun-fX-50n"/>
+                                <constraint firstItem="4gP-9f-sih" firstAttribute="bottom" secondItem="gNn-Hc-5gB" secondAttribute="bottom" id="78E-1i-6eM"/>
                                 <constraint firstAttribute="height" constant="235" id="FeJ-wX-hTc"/>
                                 <constraint firstAttribute="bottom" secondItem="Zc2-Ej-YeG" secondAttribute="bottom" id="Kz7-Zs-TG2"/>
-                                <constraint firstItem="4gP-9f-sih" firstAttribute="trailing" secondItem="E1q-mT-KTZ" secondAttribute="trailingMargin" constant="-11" id="Nam-Iy-AsJ"/>
-                                <constraint firstItem="gNn-Hc-5gB" firstAttribute="centerY" secondItem="eiM-mI-PeN" secondAttribute="centerY" constant="-1" id="UIi-AO-QLf"/>
+                                <constraint firstItem="4gP-9f-sih" firstAttribute="firstBaseline" secondItem="gNn-Hc-5gB" secondAttribute="baseline" id="RhC-Ec-f23"/>
                                 <constraint firstItem="Zc2-Ej-YeG" firstAttribute="centerX" secondItem="eiM-mI-PeN" secondAttribute="centerX" id="Xf6-Wj-Hoe"/>
-                                <constraint firstItem="4gP-9f-sih" firstAttribute="top" secondItem="E1q-mT-KTZ" secondAttribute="top" constant="95" id="apx-Wb-ii2"/>
-                                <constraint firstItem="4gP-9f-sih" firstAttribute="bottom" secondItem="gNn-Hc-5gB" secondAttribute="bottom" id="bTK-3e-FcD"/>
+                                <constraint firstItem="gNn-Hc-5gB" firstAttribute="centerY" secondItem="eiM-mI-PeN" secondAttribute="centerY" id="bTg-yU-rQY"/>
                                 <constraint firstAttribute="bottom" secondItem="eiM-mI-PeN" secondAttribute="bottom" constant="26" id="d70-x7-8Jb"/>
                                 <constraint firstItem="eiM-mI-PeN" firstAttribute="top" secondItem="E1q-mT-KTZ" secondAttribute="topMargin" constant="1" id="eAS-iS-G1f"/>
-                                <constraint firstItem="eiM-mI-PeN" firstAttribute="leading" secondItem="gNn-Hc-5gB" secondAttribute="trailing" id="jkc-Hi-7rX"/>
+                                <constraint firstItem="gNn-Hc-5gB" firstAttribute="top" secondItem="E1q-mT-KTZ" secondAttribute="top" constant="94" id="f9e-1L-oTH"/>
+                                <constraint firstAttribute="trailing" secondItem="4gP-9f-sih" secondAttribute="trailing" constant="19" id="hJR-af-87Q"/>
+                                <constraint firstItem="4gP-9f-sih" firstAttribute="centerY" secondItem="eiM-mI-PeN" secondAttribute="centerY" id="ndr-Mj-xPa"/>
+                                <constraint firstItem="gNn-Hc-5gB" firstAttribute="leading" secondItem="E1q-mT-KTZ" secondAttribute="leading" constant="19" id="t1V-wl-ExM"/>
+                                <constraint firstItem="4gP-9f-sih" firstAttribute="baseline" secondItem="gNn-Hc-5gB" secondAttribute="firstBaseline" id="z2h-Wc-HT7"/>
                             </constraints>
                         </view>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="yAR-cf-86K" userLabel="Viewtext">

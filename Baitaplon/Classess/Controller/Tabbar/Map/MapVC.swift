@@ -37,7 +37,7 @@ class MapVC: UIViewController {
         for var i = 0 ; i <= 20 ; i++ {
             
             let place = Place(title: "Nha hang \(i)",
-                locationName: " Da nang",
+                locationName: " Da nang \(i)",
                 discipline: "Restaurant30",
                 coordinate: CLLocationCoordinate2D(latitude:16.0718911 - 0.01 * Double(i) , longitude:108.2228753 - 0.001 * Double(i) ))
             place.index = i

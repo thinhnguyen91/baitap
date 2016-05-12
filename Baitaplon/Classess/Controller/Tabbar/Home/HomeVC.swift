@@ -19,6 +19,7 @@ class HomeVC: UIViewController {
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.translucent = true
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
         let nib = UINib(nibName: "ListtableView", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
@@ -34,6 +35,7 @@ class HomeVC: UIViewController {
             
             places.append(place)
         }
+        
         //tabbar
         tabBar = self.tabBarController!.tabBar
         tabBar!.selectionIndicatorImage = UIImage().makeImageWithColorAndSize(UIColor.whiteColor(), size: CGSizeMake(tabBar!.frame.width/CGFloat(tabBar!.items!.count), tabBar!.frame.height))
@@ -60,13 +62,13 @@ class HomeVC: UIViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:ListtableView = self.tableView.dequeueReusableCellWithIdentifier("cell") as! ListtableView
-        let list = places[indexPath.row]
-        let imageview: UIImage = UIImage(named: list.avatar)!
-        let imagestar: UIImage = UIImage(named: list.start)!
+        let place = places[indexPath.row]
+        let imageview: UIImage = UIImage(named: place.avatar)!
+        let imagestar: UIImage = UIImage(named: place.start)!
         
-        cell.nameList.text = list.title
+        cell.nameList.text = place.title
         cell.imageList.image = imageview
-        cell.addessList.text = list.locationName
+        cell.addessList.text = place.locationName
         cell.startList.image = imagestar
         
         return cell
