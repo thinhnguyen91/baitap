@@ -6,7 +6,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="Baitaplon" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="kuQ-nE-vIV" id="EBV-bZ-4Vk"/>
+                <outlet property="tableView" destination="Hvu-uR-D0a" id="eHO-DA-R4Y"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,24 +15,24 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="80" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="kuQ-nE-vIV">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hvu-uR-D0a">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="OVe-bS-cSR"/>
-                        <outlet property="delegate" destination="-1" id="8zb-OE-jde"/>
+                        <outlet property="dataSource" destination="-1" id="5Hf-KT-kfh"/>
+                        <outlet property="delegate" destination="-1" id="lzR-LG-YyM"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstItem="kuQ-nE-vIV" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="ewV-gK-c46"/>
-                <constraint firstAttribute="bottom" secondItem="kuQ-nE-vIV" secondAttribute="bottom" id="m4M-fe-xTI"/>
-                <constraint firstAttribute="trailing" secondItem="kuQ-nE-vIV" secondAttribute="trailing" id="nNH-jm-8pl"/>
-                <constraint firstItem="kuQ-nE-vIV" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="ywA-Je-rZe"/>
+                <constraint firstAttribute="trailing" secondItem="Hvu-uR-D0a" secondAttribute="trailing" id="6qs-bj-nYc"/>
+                <constraint firstItem="Hvu-uR-D0a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ksh-bH-IrB"/>
+                <constraint firstItem="Hvu-uR-D0a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g9O-Ae-xmW"/>
+                <constraint firstAttribute="bottom" secondItem="Hvu-uR-D0a" secondAttribute="bottom" id="n2t-D0-cM1"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-156.5" y="281.5"/>
+            <point key="canvasLocation" x="99.5" y="239.5"/>
         </view>
     </objects>
 </document>

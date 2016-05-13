@@ -10,7 +10,7 @@ import UIKit
 
 class SettingVC: UIViewController {
     var place: Place!
-    
+    var myListtableVC:ListtableView!
     @IBOutlet weak var tableSetting: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -56,7 +56,26 @@ class SettingVC: UIViewController {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 69
     }
-
+    
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableSetting.deselectRowAtIndexPath(indexPath, animated: true)
+        let item = indexPath.row
+        if item == 0 {
+            
+            let mydetailvc = DetailVC(nibName: "DetailVC", bundle: nil)
+          
+            self.navigationController?.pushViewController(mydetailvc, animated: true)
+            
+        } else if item == 1 {
+            
+        } else if item == 2 {
+            
+        }
+        
+        
+        print("Cell \(indexPath.row) of Section \(indexPath.section) ")
+        
+    }
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0

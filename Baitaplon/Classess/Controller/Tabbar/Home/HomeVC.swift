@@ -45,7 +45,7 @@
         // To change tintColor for unselect tabs
         for item in tabBar!.items! as [UITabBarItem] {
             if let image = item.image {
-                item.image = image.imageWithColor(UIColor.whiteColor()).imageWithRenderingMode(.AlwaysOriginal)
+                item.image = image.imageWithColor(uicolorFromHex(16777215)).imageWithRenderingMode(.AlwaysOriginal)
             }
         }
     }
