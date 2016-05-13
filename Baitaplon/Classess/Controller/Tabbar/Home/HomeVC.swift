@@ -1,20 +1,22 @@
-//
-//  HomeVC.swift
-//  Baitaplon
-//
-//  Created by ThinhNX on 4/26/16.
-//  Copyright © 2016 AsianTech. All rights reserved.
-//
-
-import UIKit
-import MapKit
-class HomeVC: UIViewController {
+ //  HomeVC.swift
+ //  Baitaplon
+ //
+ //  Created by ThinhNX on 4/26/16.
+ //  Created by ThinhNX on 5/13/16.
+ //  Copyright © 2016 AsianTech. All rights reserved.
+ //
+ 
+ import UIKit
+ import MapKit
+ 
+ class HomeVC: UIViewController {
     var tabBar: UITabBar?
     var places = [Place]()
+    
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         self.title = "HOME"
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.translucent = true
@@ -29,7 +31,7 @@ class HomeVC: UIViewController {
                 locationName: "Đà Nẵng \(i)",
                 discipline: "",
                 coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
-   
+            
             place.avatar  = "nhahang"
             place.start = "star30"
             
@@ -38,7 +40,7 @@ class HomeVC: UIViewController {
         
         //tabbar
         tabBar = self.tabBarController!.tabBar
-        tabBar!.selectionIndicatorImage = UIImage().makeImageWithColorAndSize(UIColor.whiteColor(), size: CGSizeMake(tabBar!.frame.width/CGFloat(tabBar!.items!.count), tabBar!.frame.height))
+        tabBar!.selectionIndicatorImage = UIImage().makeImageWithColorAndSize(uicolorFromHex(16777215), size: CGSizeMake(tabBar!.frame.width/CGFloat(tabBar!.items!.count), tabBar!.frame.height))
         
         // To change tintColor for unselect tabs
         for item in tabBar!.items! as [UITabBarItem] {
@@ -96,18 +98,21 @@ class HomeVC: UIViewController {
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+        
+        // Do any additional setup after loading the view.
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-}
-extension HomeVC: UITableViewDelegate,  UITableViewDataSource {
+ }
+ extension HomeVC: UITableViewDelegate,  UITableViewDataSource {
     
-}
-extension UIImage {
+ }
+ extension UIImage {
     func makeImageWithColorAndSize(color: UIColor, size: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         color.setFill()
@@ -116,9 +121,9 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
-}
-
-extension UIImage {
+ }
+ 
+ extension UIImage {
     func imageWithColor(tintColor: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         
@@ -137,4 +142,4 @@ extension UIImage {
         
         return newImage
     }
-}
+ }

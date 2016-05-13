@@ -13,6 +13,7 @@ class ShowVC: UIViewController {
     var imageViews:[UIImageView] = []
     var place: Place!
     var mymapvc: MapVC!
+    var myfovaritlevc: FovariteVC!
     var btn1 = UIButton()
     
     @IBOutlet weak var buttonR: UIButton!
@@ -63,6 +64,13 @@ class ShowVC: UIViewController {
         item1.customView = btn1
         self.navigationItem.rightBarButtonItem = item1
         
+        if place.isFovarite {
+            btn1.setImage(UIImage(named: "Star_50"), forState: .Normal)
+        }  else {
+            btn1.setImage(UIImage(named: "star50"), forState: .Normal)
+        }
+        
+        
         self.title = "SHOW"
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
@@ -87,12 +95,21 @@ class ShowVC: UIViewController {
         getmap()
         
     }
+    
     func action1(sender: UIBarButtonItem){
-        print("ckick star")
-        if btn1.tag == 0 {
-            btn1.setImage(UIImage(named: "Star_50"), forState: .Normal)
-        }
         
+        print("ckick star")
+      
+        
+        place.isFovarite = !place.isFovarite
+        
+        if place.isFovarite {
+            btn1.setImage(UIImage(named: "Star_50"), forState: .Normal)
+        }  else {
+            btn1.setImage(UIImage(named: "star50"), forState: .Normal)
+        }
+       
+    
     }
     func getmap(){
         let location = CLLocationCoordinate2D(

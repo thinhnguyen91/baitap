@@ -9,14 +9,54 @@
 import UIKit
 
 class SettingVC: UIViewController {
-
+    var place: Place!
+    
+    @IBOutlet weak var tableSetting: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.title = "SETTING"
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        let nib = UINib(nibName: "Cell", bundle: nil)
+        tableSetting.registerNib(nib, forCellReuseIdentifier: "Cell")
+        
+        self.tableSetting.delegate = self
     }
+    
+    // MARK: tableview
+    func numberOfSectionsInTableView(tableView: UITableView) -> Int {
+        
+        return 1
+    }
+    
+    func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        return 3
+    }
+    
+    func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+        
+        let cell:ListtableView = self.tableSetting.dequeueReusableCellWithIdentifier("Cell") as! ListtableView
+        let item = indexPath.row
+        if item == 0 {
+            let imageview: UIImage = UIImage(named: "avatar")!
+            cell.nameLable.text = "NAM"
+            cell.avatar.image = imageview
+        } else if item == 1 {
+            cell.nameLable.text = "FOLLOWER"
+        } else if item == 2 {
+            cell.nameLable.text = "FOLLOWING"
+        }
+        return cell
+        
+    }
+    
+    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
+        return 69
+    }
+
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
@@ -28,6 +68,8 @@ class SettingVC: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
-    
 
+}
+extension SettingVC: UITableViewDelegate,  UITableViewDataSource {
+    
 }

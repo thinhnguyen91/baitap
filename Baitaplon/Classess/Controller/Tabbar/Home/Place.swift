@@ -12,6 +12,7 @@ class Place: NSObject, MKAnnotation{
    
     var avatar: String = ""
     var start: String = ""
+    var startyellow: String = ""
     
     var image: UIImage?
     let title: String?
@@ -19,6 +20,7 @@ class Place: NSObject, MKAnnotation{
     let discipline: String
     let coordinate: CLLocationCoordinate2D
     var index = 0
+    var isFovarite = false
     
     init(title: String, locationName: String, discipline: String, coordinate: CLLocationCoordinate2D) {
         self.title = title
