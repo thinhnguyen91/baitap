@@ -14,7 +14,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="83"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTx-Re-P5k">
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="PTx-Re-P5k">
                         <rect key="frame" x="99" y="8" width="170" height="29"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="29" id="DYp-OR-brr"/>
@@ -24,13 +24,6 @@
                         <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vpD-3F-6iy">
-                        <rect key="frame" x="8" y="6" width="83" height="72"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="83" id="aRS-bA-tfg"/>
-                            <constraint firstAttribute="height" constant="72" id="kMg-1z-kTR"/>
-                        </constraints>
-                    </imageView>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Fwc-ss-dGy">
                         <rect key="frame" x="99" y="33" width="164" height="21"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -41,6 +34,13 @@
                         <rect key="frame" x="292" y="58" width="20" height="20"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="20" id="PpX-5q-6Uv"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vpD-3F-6iy">
+                        <rect key="frame" x="8" y="6" width="83" height="72"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="83" id="aRS-bA-tfg"/>
+                            <constraint firstAttribute="height" constant="72" id="kMg-1z-kTR"/>
                         </constraints>
                     </imageView>
                 </subviews>
@@ -66,7 +66,7 @@
                 <outlet property="nameList" destination="PTx-Re-P5k" id="Y3B-QR-6DN"/>
                 <outlet property="startList" destination="gHR-5J-Low" id="MuY-em-6NZ"/>
             </connections>
-            <point key="canvasLocation" x="409" y="149"/>
+            <point key="canvasLocation" x="246" y="68"/>
         </tableViewCell>
     </objects>
 </document>

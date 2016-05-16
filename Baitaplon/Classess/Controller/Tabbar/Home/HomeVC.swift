@@ -1,47 +1,51 @@
-//
-//  HomeVC.swift
-//  Baitaplon
-//
-//  Created by ThinhNX on 4/26/16.
-//  Copyright © 2016 AsianTech. All rights reserved.
-//
-
-import UIKit
-import MapKit
-class HomeVC: UIViewController {
+ //  HomeVC.swift
+ //  Baitaplon
+ //
+ //  Created by ThinhNX on 4/26/16.
+ //  Created by ThinhNX on 5/13/16.
+ //  Copyright © 2016 AsianTech. All rights reserved.
+ //
+ 
+ import UIKit
+ import MapKit
+ 
+ class HomeVC: UIViewController {
     var tabBar: UITabBar?
     var places = [Place]()
+    
     @IBOutlet weak var tableView: UITableView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "HOME"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.translucent = true
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         let nib = UINib(nibName: "ListtableView", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
         for var i = 0 ; i <= 20 ; i++ {
             
             let place = Place(title: "Nhà Hàng \(i)",
-                locationName: "Đà Nẵng",
+                locationName: "Đà Nẵng \(i)",
                 discipline: "",
                 coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
-   
             place.avatar  = "nhahang"
             place.start = "star30"
             
             places.append(place)
         }
+        
         //tabbar
         tabBar = self.tabBarController!.tabBar
-        tabBar!.selectionIndicatorImage = UIImage().makeImageWithColorAndSize(UIColor.whiteColor(), size: CGSizeMake(tabBar!.frame.width/CGFloat(tabBar!.items!.count), tabBar!.frame.height))
+        tabBar!.selectionIndicatorImage = UIImage().makeImageWithColorAndSize(uicolorFromHex(16777215),
+            size: CGSizeMake(tabBar!.frame.width/CGFloat(tabBar!.items!.count), tabBar!.frame.height))
         
         // To change tintColor for unselect tabs
         for item in tabBar!.items! as [UITabBarItem] {
             if let image = item.image {
-                item.image = image.imageWithColor(UIColor.whiteColor()).imageWithRenderingMode(.AlwaysOriginal)
+                item.image = image.imageWithColor(uicolorFromHex(16777215)).imageWithRenderingMode(.AlwaysOriginal)
             }
         }
     }
@@ -60,13 +64,13 @@ class HomeVC: UIViewController {
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:ListtableView = self.tableView.dequeueReusableCellWithIdentifier("cell") as! ListtableView
-        let list = places[indexPath.row]
-        let imageview: UIImage = UIImage(named: list.avatar)!
-        let imagestar: UIImage = UIImage(named: list.start)!
+        let place = places[indexPath.row]
+        let imageview: UIImage = UIImage(named: place.avatar)!
+        let imagestar: UIImage = UIImage(named: place.start)!
         
-        cell.nameList.text = list.title
+        cell.nameList.text = place.title
         cell.imageList.image = imageview
-        cell.addessList.text = list.locationName
+        cell.addessList.text = place.locationName
         cell.startList.image = imagestar
         
         return cell
@@ -94,18 +98,21 @@ class HomeVC: UIViewController {
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
+        
+        // Do any additional setup after loading the view.
     }
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
     
-}
-extension HomeVC: UITableViewDelegate,  UITableViewDataSource {
+ }
+ extension HomeVC: UITableViewDelegate,  UITableViewDataSource {
     
-}
-extension UIImage {
+ }
+ extension UIImage {
     func makeImageWithColorAndSize(color: UIColor, size: CGSize) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(size, false, 0)
         color.setFill()
@@ -114,9 +121,6 @@ extension UIImage {
         UIGraphicsEndImageContext()
         return image
     }
-}
-
-extension UIImage {
     func imageWithColor(tintColor: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         
@@ -135,4 +139,5 @@ extension UIImage {
         
         return newImage
     }
-}
+
+ }

@@ -4,9 +4,9 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeVC" customModule="Baitaplon" customModuleProvider="target">
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="DetailFollowerVC" customModule="Baitaplon" customModuleProvider="target">
             <connections>
-                <outlet property="tableView" destination="Hvu-uR-D0a" id="eHO-DA-R4Y"/>
+                <outlet property="tableDetailFollower" destination="0ji-V8-VOG" id="74O-kV-ZP3"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -15,24 +15,24 @@
             <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="84" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Hvu-uR-D0a">
+                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0ji-V8-VOG">
                     <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <connections>
-                        <outlet property="dataSource" destination="-1" id="5Hf-KT-kfh"/>
-                        <outlet property="delegate" destination="-1" id="lzR-LG-YyM"/>
+                        <outlet property="dataSource" destination="-1" id="gJx-NF-SYx"/>
+                        <outlet property="delegate" destination="-1" id="7DK-9j-3Yk"/>
                     </connections>
                 </tableView>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <constraints>
-                <constraint firstAttribute="trailing" secondItem="Hvu-uR-D0a" secondAttribute="trailing" id="6qs-bj-nYc"/>
-                <constraint firstItem="Hvu-uR-D0a" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="Ksh-bH-IrB"/>
-                <constraint firstItem="Hvu-uR-D0a" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="g9O-Ae-xmW"/>
-                <constraint firstAttribute="bottom" secondItem="Hvu-uR-D0a" secondAttribute="bottom" id="n2t-D0-cM1"/>
+                <constraint firstAttribute="trailing" secondItem="0ji-V8-VOG" secondAttribute="trailing" id="Ll4-kN-NX3"/>
+                <constraint firstAttribute="bottom" secondItem="0ji-V8-VOG" secondAttribute="bottom" id="fgS-rK-AU8"/>
+                <constraint firstItem="0ji-V8-VOG" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" id="hbO-6V-q0U"/>
+                <constraint firstItem="0ji-V8-VOG" firstAttribute="leading" secondItem="i5M-Pr-FkT" secondAttribute="leading" id="m5q-NX-0qI"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="99.5" y="239.5"/>
+            <point key="canvasLocation" x="415.5" y="334.5"/>
         </view>
     </objects>
 </document>
