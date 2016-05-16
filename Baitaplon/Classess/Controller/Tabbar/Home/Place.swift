@@ -13,6 +13,7 @@ class Place: NSObject, MKAnnotation{
     var avatar: String = ""
     var start: String = ""
     var startyellow: String = ""
+    var name: String = ""
     
     var image: UIImage?
     let title: String?

@@ -41,33 +41,37 @@ class SettingVC: UIViewController {
         let cell:ListtableView = self.tableSetting.dequeueReusableCellWithIdentifier("Cell") as! ListtableView
         let item = indexPath.row
         if item == 0 {
-            let imageview: UIImage = UIImage(named: "avatar")!
+            let imageview: UIImage = UIImage(named: "Apple180x180")!
             cell.nameLable.text = "NAM"
             cell.avatar.image = imageview
         } else if item == 1 {
-            cell.nameLable.text = "FOLLOWER"
+            cell.nameLable.text = "Follower"
         } else if item == 2 {
-            cell.nameLable.text = "FOLLOWING"
+            cell.nameLable.text = "Folowing"
         }
         return cell
         
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 69
+        return 48
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        
         self.tableSetting.deselectRowAtIndexPath(indexPath, animated: true)
+        
         let item = indexPath.row
         if item == 0 {
-            
+        
             let mydetailvc = DetailVC(nibName: "DetailVC", bundle: nil)
-          
+            mydetailvc.title = "NAM"
             self.navigationController?.pushViewController(mydetailvc, animated: true)
             
         } else if item == 1 {
-            
+            let mydetailFowoerl = DetailFollowerVC(nibName: "DetailFollowerVC", bundle: nil)
+            mydetailFowoerl.title = "FOLLOWER"
+            self.navigationController?.pushViewController(mydetailFowoerl, animated: true)
         } else if item == 2 {
             
         }

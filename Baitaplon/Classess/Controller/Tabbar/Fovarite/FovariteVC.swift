@@ -10,6 +10,8 @@ import UIKit
 
 class FovariteVC: UIViewController {
 
+    var myshowvc: ShowVC!
+    var addlist: [String] = []
     @IBOutlet weak var tableFovarite: UITableView!
     
     override func viewDidLoad() {
@@ -34,13 +36,13 @@ class FovariteVC: UIViewController {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 0
+        return addlist.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         let cell:ListtableView = self.tableFovarite.dequeueReusableCellWithIdentifier("cell") as! ListtableView
         
-        // Configure the cell...
+        cell.nameList.text = addlist[indexPath.row]
         
         return cell
     }

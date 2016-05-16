@@ -12,29 +12,31 @@ class DetailVC: UIViewController {
     var mySetting: SettingVC!
     var myListtableVC: ListtableView!
     
+    @IBOutlet weak var imgAvatar: UIImageView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        self.title = ""
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "barButtonItemClicked:"), animated: true)
+        
+        self.imgAvatar.layer.cornerRadius = imgAvatar.frame.size.width / 2
+        self.imgAvatar.clipsToBounds = true
+        
+        
+        
     }
-
+    func barButtonItemClicked(sender: UIBarButtonItem){
+        print("kich edit")
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
+ 
 
 }

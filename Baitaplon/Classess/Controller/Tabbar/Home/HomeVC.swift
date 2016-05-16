@@ -17,11 +17,11 @@
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.title = "HOME"
+        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.translucent = true
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        
         let nib = UINib(nibName: "ListtableView", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
@@ -31,7 +31,6 @@
                 locationName: "Đà Nẵng \(i)",
                 discipline: "",
                 coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
-            
             place.avatar  = "nhahang"
             place.start = "star30"
             
@@ -40,7 +39,8 @@
         
         //tabbar
         tabBar = self.tabBarController!.tabBar
-        tabBar!.selectionIndicatorImage = UIImage().makeImageWithColorAndSize(uicolorFromHex(16777215), size: CGSizeMake(tabBar!.frame.width/CGFloat(tabBar!.items!.count), tabBar!.frame.height))
+        tabBar!.selectionIndicatorImage = UIImage().makeImageWithColorAndSize(uicolorFromHex(16777215),
+            size: CGSizeMake(tabBar!.frame.width/CGFloat(tabBar!.items!.count), tabBar!.frame.height))
         
         // To change tintColor for unselect tabs
         for item in tabBar!.items! as [UITabBarItem] {
@@ -121,9 +121,6 @@
         UIGraphicsEndImageContext()
         return image
     }
- }
- 
- extension UIImage {
     func imageWithColor(tintColor: UIColor) -> UIImage {
         UIGraphicsBeginImageContextWithOptions(self.size, false, self.scale)
         
@@ -142,4 +139,5 @@
         
         return newImage
     }
+
  }
