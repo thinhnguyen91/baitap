@@ -12,6 +12,8 @@
  class HomeVC: UIViewController {
     var tabBar: UITabBar?
     var places = [Place]()
+    var myShowVC = ShowVC()
+    let customNavigationAnimationController = CustomNavigationAnimationController()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -22,6 +24,8 @@
         self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.delegate = self
+        
         let nib = UINib(nibName: "ListtableView", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
@@ -49,7 +53,11 @@
             }
         }
     }
-    
+
+//    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+//        customNavigationAnimationController.reverse = operation == .Pop
+//        return customNavigationAnimationController
+//    }
     // MARK: tableview
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
@@ -109,7 +117,7 @@
     
     
  }
- extension HomeVC: UITableViewDelegate,  UITableViewDataSource {
+ extension HomeVC: UITableViewDelegate,  UITableViewDataSource,UIViewControllerTransitioningDelegate, UINavigationControllerDelegate  {
     
  }
  extension UIImage {

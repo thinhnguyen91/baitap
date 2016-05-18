@@ -9,8 +9,9 @@
 import UIKit
 
 class SettingVC: UIViewController {
-    var place: Place!
     var myListtableVC:ListtableView!
+    var arrays: [String] = ["NAM","Follower", "Folowing"]
+    
     @IBOutlet weak var tableSetting: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -23,6 +24,7 @@ class SettingVC: UIViewController {
         tableSetting.registerNib(nib, forCellReuseIdentifier: "Cell")
         
         self.tableSetting.delegate = self
+     
     }
     
     // MARK: tableview
@@ -33,22 +35,16 @@ class SettingVC: UIViewController {
     
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return arrays.count
     }
     
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:ListtableView = self.tableSetting.dequeueReusableCellWithIdentifier("Cell") as! ListtableView
-        let item = indexPath.row
-        if item == 0 {
-            let imageview: UIImage = UIImage(named: "Apple180x180")!
-            cell.nameLable.text = "NAM"
-            cell.avatar.image = imageview
-        } else if item == 1 {
-            cell.nameLable.text = "Follower"
-        } else if item == 2 {
-            cell.nameLable.text = "Folowing"
-        }
+        cell.nameLable.text = arrays[indexPath.row]
+        cell.avatar.image = UIImage(named: arrays[indexPath.row])
+        cell.avatar.layer.cornerRadius = cell.avatar.frame.size.width/2
+        cell.avatar.clipsToBounds = true
         return cell
         
     }
@@ -65,17 +61,22 @@ class SettingVC: UIViewController {
         if item == 0 {
         
             let mydetailvc = DetailVC(nibName: "DetailVC", bundle: nil)
-            mydetailvc.title = "NAM"
+            self.tableSetting.delegate = self
+            let row = arrays[indexPath.row]
+            mydetailvc.title = row
+            mydetailvc.imageName = row
             self.navigationController?.pushViewController(mydetailvc, animated: true)
             
+            
         } else if item == 1 {
+            
             let mydetailFowoerl = DetailFollowerVC(nibName: "DetailFollowerVC", bundle: nil)
             mydetailFowoerl.title = "FOLLOWER"
             self.navigationController?.pushViewController(mydetailFowoerl, animated: true)
+            
         } else if item == 2 {
             
         }
-        
         
         print("Cell \(indexPath.row) of Section \(indexPath.section) ")
         

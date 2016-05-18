@@ -10,7 +10,7 @@ import UIKit
  import MapKit
 class DetailFollowerVC: UIViewController {
     var places = [Place]()
-    
+   
     @IBOutlet weak var tableDetailFollower: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -32,7 +32,7 @@ class DetailFollowerVC: UIViewController {
             } else {
                 place.name = "Nu"
             }
-            place.avatar  = "Apple180x180"
+            place.avatar  = "image\(i%3)"
             
             places.append(place)
         }
@@ -43,13 +43,18 @@ class DetailFollowerVC: UIViewController {
         
         self.tableDetailFollower.delegate = self
         self.tableDetailFollower.dataSource = self
+        
     }
     
     func action(sender: UIBarButtonItem){
         let alert = UIAlertController(title: "DELETE ALL", message: "Would you like to continue Delete all?", preferredStyle: UIAlertControllerStyle.Alert)
         
         // add the actions (buttons)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ (actionSheetController) -> Void in
+            print("handle Save action...")
+            self.places.removeAll()
+            self.tableDetailFollower.reloadData()
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
         
         // show the alert
@@ -73,7 +78,10 @@ class DetailFollowerVC: UIViewController {
         let cell:ListtableView = self.tableDetailFollower.dequeueReusableCellWithIdentifier("Cell") as! ListtableView
         let place = places[indexPath.row]
         let imageview: UIImage = UIImage(named: place.avatar)!
+        
         cell.avatar.image = imageview
+        cell.avatar.layer.cornerRadius = cell.avatar.frame.size.width/2
+        cell.avatar.clipsToBounds = true
         cell.nameLable.text = place.name
         
         return cell
@@ -82,6 +90,7 @@ class DetailFollowerVC: UIViewController {
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 48
     }
+    
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
             places.removeAtIndex(indexPath.row)

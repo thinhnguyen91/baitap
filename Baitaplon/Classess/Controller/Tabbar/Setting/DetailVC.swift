@@ -11,7 +11,7 @@ import UIKit
 class DetailVC: UIViewController {
     var mySetting: SettingVC!
     var myListtableVC: ListtableView!
-    
+    var imageName : String?
     @IBOutlet weak var imgAvatar: UIImageView!
 
     override func viewDidLoad() {
@@ -25,7 +25,9 @@ class DetailVC: UIViewController {
         self.imgAvatar.layer.cornerRadius = imgAvatar.frame.size.width / 2
         self.imgAvatar.clipsToBounds = true
         
-        
+        if let image = UIImage(named: imageName!) {
+            self.imgAvatar.image = image
+        }
         
     }
     func barButtonItemClicked(sender: UIBarButtonItem){
