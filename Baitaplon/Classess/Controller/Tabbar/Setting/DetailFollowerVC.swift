@@ -15,8 +15,16 @@ class DetailFollowerVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.title = "DetailFollowerVC"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
+        self.navigationItem.leftBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
         
         let nib = UINib(nibName: "Cell", bundle: nil)
         tableDetailFollower.registerNib(nib, forCellReuseIdentifier: "Cell")

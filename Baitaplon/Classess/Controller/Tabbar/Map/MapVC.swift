@@ -18,7 +18,8 @@ class MapVC: UIViewController {
 
         self.title = "MAP"
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         mapView.delegate = self
         zoomToRegion()

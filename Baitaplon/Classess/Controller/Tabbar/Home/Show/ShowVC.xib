@@ -86,9 +86,9 @@
                                 <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleAspectFit" textAlignment="justified" translatesAutoresizingMaskIntoConstraints="NO" id="aAh-PQ-GPg">
                                     <rect key="frame" x="27" y="0.0" width="320" height="204"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                    <string key="text">“Fatfish là một nơi tuyệt vời cho gia đình và bạn bè”5 trên 5 saoĐã đánh giá 13 tháng hai, 2016 qua di động.Đồ ăn rất ngon và tươi, đặc biệt là các món cá. Món ăn theo phong cách fusion nên thích hợp cả cho người nước ngoài và người Việt Nam, đặc biệt đối với những ai không quen ăn món Tây. Mình dẫn mẹ mình đến quán và mẹ rất thích đồ ăn ở đây, dù mẹ mình chỉ quen..</string>
+                                    <mutableString key="text">“Fatfish là một nơi tuyệt vời cho gia đình và bạn bè”5 trên 5 saoĐã đánh giá 13 tháng hai, 2016 qua di động.Đồ ăn rất ngon và tươi, đặc biệt là các món cá. Món ăn theo phong cách fusion nên thích hợp cả cho người nước ngoài và người Việt Nam, đặc biệt đối với những ai không quen ăn món Tây. Mình dẫn mẹ mình đến quán và mẹ rất thích đồ ăn ở đây, dù mẹ mình chỉ quen..“Fatfish là một nơi tuyệt vời cho gia đình và bạn bè”5 trên 5 saoĐã đánh giá 13 tháng hai, 2016 qua di động.Đồ ăn rất ngon và tươi, đặc biệt là các món cá. Món ăn theo phong cách fusion nên thích hợp cả cho người nước ngoài và người Việt Nam, đặc biệt đối với những ai không quen ăn món Tây. Mình dẫn mẹ mình đến quán và mẹ rất thích đồ ăn ở đây, dù mẹ mình chỉ quen..</mutableString>
                                     <color key="textColor" red="0.094256875733195397" green="0.47979797979797978" blue="0.40361730229446058" alpha="1" colorSpace="calibratedRGB"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                                     <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                 </textView>
                             </subviews>
@@ -131,27 +131,32 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="JMW-RW-fKs" userLabel="Viewlable">
                             <rect key="frame" x="0.0" y="297" width="375" height="74"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqe-XY-Cp6">
-                                    <rect key="frame" x="40" y="56" width="38" height="18"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="15"/>
-                                    <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-ge-Lmy">
+                                    <rect key="frame" x="40" y="8" width="296" height="19"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="19" id="f2b-5E-8iO"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="18"/>
+                                    <color key="textColor" red="1" green="0.29469158320053146" blue="0.041142320378532937" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eWc-ge-Lmy">
-                                    <rect key="frame" x="40" y="27" width="296" height="21"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                    <color key="textColor" red="1" green="0.29469158320053146" blue="0.041142320378532937" alpha="1" colorSpace="calibratedRGB"/>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gqe-XY-Cp6">
+                                    <rect key="frame" x="40" y="35" width="296" height="17"/>
+                                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="13"/>
+                                    <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
                             </subviews>
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <constraints>
-                                <constraint firstItem="eWc-ge-Lmy" firstAttribute="centerY" secondItem="JMW-RW-fKs" secondAttribute="centerY" id="0ZN-oc-tvz"/>
-                                <constraint firstItem="gqe-XY-Cp6" firstAttribute="top" secondItem="eWc-ge-Lmy" secondAttribute="bottom" constant="8" symbolic="YES" id="2J9-iM-uto"/>
+                                <constraint firstItem="gqe-XY-Cp6" firstAttribute="leading" secondItem="eWc-ge-Lmy" secondAttribute="leading" id="2RZ-Wr-tqC"/>
+                                <constraint firstAttribute="bottom" secondItem="gqe-XY-Cp6" secondAttribute="bottom" constant="22" id="DYB-H6-Mw1"/>
                                 <constraint firstAttribute="height" constant="74" id="Hd0-1u-ZzS"/>
-                                <constraint firstItem="eWc-ge-Lmy" firstAttribute="leading" secondItem="JMW-RW-fKs" secondAttribute="leading" constant="40" id="V8o-6n-YlZ"/>
-                                <constraint firstItem="eWc-ge-Lmy" firstAttribute="leading" secondItem="gqe-XY-Cp6" secondAttribute="leading" id="a91-Qx-ueU"/>
-                                <constraint firstItem="eWc-ge-Lmy" firstAttribute="centerX" secondItem="JMW-RW-fKs" secondAttribute="centerX" id="ppm-kZ-txL"/>
+                                <constraint firstItem="gqe-XY-Cp6" firstAttribute="top" secondItem="eWc-ge-Lmy" secondAttribute="bottom" constant="8" symbolic="YES" id="Ivo-gU-Omd"/>
+                                <constraint firstItem="gqe-XY-Cp6" firstAttribute="centerX" secondItem="JMW-RW-fKs" secondAttribute="centerX" id="JKG-pX-IK2"/>
+                                <constraint firstItem="gqe-XY-Cp6" firstAttribute="leading" secondItem="JMW-RW-fKs" secondAttribute="leading" constant="40" id="Tdr-uc-B7H"/>
+                                <constraint firstItem="gqe-XY-Cp6" firstAttribute="trailing" secondItem="eWc-ge-Lmy" secondAttribute="trailing" id="sCA-ck-mEK"/>
+                                <constraint firstItem="eWc-ge-Lmy" firstAttribute="top" secondItem="JMW-RW-fKs" secondAttribute="topMargin" id="xQP-L9-aGx"/>
                             </constraints>
                         </view>
                     </subviews>

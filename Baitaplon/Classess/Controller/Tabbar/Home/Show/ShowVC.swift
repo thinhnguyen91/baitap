@@ -9,12 +9,12 @@
 import UIKit
 import MapKit
 class ShowVC: UIViewController {
-    var imageArray = [UIImage(named: "nhahang"), UIImage(named: "image0"), UIImage(named: "image1"),UIImage(named: "image2"),UIImage(named: "image1"),UIImage(named: "image0")]
+    var imageArray = [UIImage(named: "nhahang0"), UIImage(named: "nhahang1"), UIImage(named: "nhahang2"),UIImage(named: "nhahang3"),UIImage(named: "nhahang4"),UIImage(named: "nhahang5")]
     var imageViews:[UIImageView] = []
     var place: Place!
     var mymapvc: MapVC!
     var myfovaritlevc: FovariteVC!
-    
+    var btn = UIButton()
     var btn1 = UIButton()
     
     @IBOutlet weak var buttonR: UIButton!
@@ -57,7 +57,6 @@ class ShowVC: UIViewController {
         configurePageControl()
         
         //custom button
-        
         btn1.setImage(UIImage(named: "star50"), forState: .Normal)
         btn1.frame = CGRectMake(0, 0, 25, 25)
         btn1.addTarget(self, action: Selector("action1:"), forControlEvents: .TouchUpInside)
@@ -65,17 +64,26 @@ class ShowVC: UIViewController {
         item1.customView = btn1
         self.navigationItem.rightBarButtonItem = item1
         
+        btn.setImage(UIImage(named: "Back-25"), forState: .Normal)
+        btn.frame = CGRectMake(0, 0, 25, 25)
+        btn.addTarget(self, action: Selector("back:"), forControlEvents: .TouchUpInside)
+        let item = UIBarButtonItem()
+        item.customView = btn
+        self.navigationItem.leftBarButtonItem = item
+        
         if place.isFovarite {
             btn1.setImage(UIImage(named: "Star_50"), forState: .Normal)
         }  else {
             btn1.setImage(UIImage(named: "star50"), forState: .Normal)
         }
-        
-        
-        self.title = "SHOW"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
-        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
 
+        self.title = "SHOW"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
         
         //scrollimage
         scrollImage.showsHorizontalScrollIndicator = false
@@ -98,6 +106,22 @@ class ShowVC: UIViewController {
         
     }
     
+    func back(sender: UIBarButtonItem){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
+    func action1(sender: UIBarButtonItem){
+        
+        print("ckick star")
+        place.isFovarite = !place.isFovarite
+        
+        if place.isFovarite {
+            btn1.setImage(UIImage(named: "Star_50"), forState: .Normal)
+        }  else {
+            btn1.setImage(UIImage(named: "star50"), forState: .Normal)
+        }
+        
+    }
     // pagecontrol
     func configurePageControl() {
         
@@ -115,18 +139,6 @@ class ShowVC: UIViewController {
         pageControl.currentPage = Int(pageNumber)
     }
   
-    func action1(sender: UIBarButtonItem){
-        
-        print("ckick star")
-        place.isFovarite = !place.isFovarite
-        
-        if place.isFovarite {
-            btn1.setImage(UIImage(named: "Star_50"), forState: .Normal)
-        }  else {
-            btn1.setImage(UIImage(named: "star50"), forState: .Normal)
-        }
-
-    }
     
     //map
     func getmap(){

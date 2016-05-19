@@ -11,6 +11,7 @@ import UIKit
 class SettingVC: UIViewController {
     var myListtableVC:ListtableView!
     var arrays: [String] = ["NAM","Follower", "Folowing"]
+     var btn1 = UIButton()
     
     @IBOutlet weak var tableSetting: UITableView!
     override func viewDidLoad() {
@@ -18,7 +19,16 @@ class SettingVC: UIViewController {
 
         self.title = "SETTING"
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+        
+        //custom button
+        btn1.setImage(UIImage(named: "star50"), forState: .Normal)
+        btn1.frame = CGRectMake(0, 0, 25, 25)
+        btn1.addTarget(self, action: Selector("logout:"), forControlEvents: .TouchUpInside)
+        let item1 = UIBarButtonItem()
+        item1.customView = btn1
+        self.navigationItem.rightBarButtonItem = item1
         
         let nib = UINib(nibName: "Cell", bundle: nil)
         tableSetting.registerNib(nib, forCellReuseIdentifier: "Cell")

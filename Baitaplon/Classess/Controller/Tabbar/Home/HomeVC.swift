@@ -21,7 +21,8 @@
         super.viewDidLoad()
         
         self.title = "HOME"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.translucent = true
         self.navigationController?.delegate = self
@@ -35,7 +36,7 @@
                 locationName: "Đà Nẵng \(i)",
                 discipline: "",
                 coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
-            place.avatar  = "nhahang"
+            place.avatar  = "nhahang\(i%6)"
             place.start = "star30"
             
             places.append(place)
@@ -86,7 +87,7 @@
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 84
+        return 72
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {

@@ -9,7 +9,7 @@
 import UIKit
 
 class RegisterVC: UIViewController {
-    
+    var btn = UIButton()
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var userRegi: UITextField!
     @IBOutlet weak var passRegi: UITextField!
@@ -20,18 +20,32 @@ class RegisterVC: UIViewController {
         super.viewDidLoad()
 
         self.title = "REGISTER"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: "done:")
-            avatar.layer.cornerRadius = avatar.frame.size.width / 2
-            avatar.clipsToBounds = true
+        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
+       self.navigationItem.hidesBackButton = true
+    
+        //custom button
+        btn.setImage(UIImage(named: "Back-25"), forState: .Normal)
+        btn.frame = CGRectMake(0, 0, 25, 25)
+        btn.addTarget(self, action: Selector("back:"), forControlEvents: .TouchUpInside)
+        let item = UIBarButtonItem()
+        item.customView = btn
+        self.navigationItem.leftBarButtonItem = item
         
-            userRegi.delegate = self
-            passRegi.delegate = self
-            newpassRegi.delegate = self
-            emailRegi.delegate = self
+        self.avatar.layer.cornerRadius = avatar.frame.size.width / 2
+        self.avatar.clipsToBounds = true
+        
+        self.userRegi.delegate = self
+        self.passRegi.delegate = self
+        self.newpassRegi.delegate = self
+        self.emailRegi.delegate = self
         
         
     }
@@ -40,7 +54,9 @@ class RegisterVC: UIViewController {
         AppDelegate.sharedInstance().loginSuccess()
         print("done")
     }
-    
+    func back(sender: UIBarButtonItem){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     //MARK: toucher textfiled
     
     func textFieldShouldReturn(textField: UITextField) -> Bool {

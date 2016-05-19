@@ -24,15 +24,19 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         
         UIApplication.sharedApplication().statusBarStyle = UIStatusBarStyle.LightContent
-        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
+       
+        UITabBar.appearance().tintColor = UIColor.whiteColor()
+        UITabBarItem.appearance().setTitleTextAttributes([NSFontAttributeName:UIFont(name: "American Typewriter", size: 13)!,
+            NSForegroundColorAttributeName: uicolorFromHex(16777215)],
+            forState: UIControlState.Normal)
         
+        self.window = UIWindow(frame: UIScreen.mainScreen().bounds)
         
         //init navigation controller
         // init LoginVC
         
         let loginVC = LoginVC(nibName: "LoginVC", bundle: nil)
         navigation = UINavigationController(rootViewController: loginVC)
-        
         
         // init tabbar
         // navi Home
@@ -41,7 +45,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         nav1.viewControllers = [homeVC]
         nav1.title = "HOME"
         nav1.tabBarItem.image = UIImage(named: "Home_2")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
-        
         
         //navi favorite
         let nav2 = UINavigationController()
@@ -64,7 +67,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         nav4.title = "SETTING"
         nav4.tabBarItem.image = UIImage(named: "Settings-30")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal)
         
-       
         tabbar = UITabBarController()
         tabbar!.viewControllers = [nav1, nav2, nav3, nav4]
         tabbar!.tabBar.barTintColor = uicolorFromHex(16729344)

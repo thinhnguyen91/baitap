@@ -15,11 +15,17 @@ class ForgotPasswordVC: UIViewController {
         super.viewDidLoad()
         
         self.title = "FORGOT PASSWORD"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: "done:")
+        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
+        self.navigationItem.setHidesBackButton(false, animated: false)
+        
         self.forgotText.delegate = self
         
     }

@@ -16,11 +16,18 @@ class DetailVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.title = "DetailVC"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.setRightBarButtonItem(UIBarButtonItem(barButtonSystemItem: .Edit, target: self, action: "barButtonItemClicked:"), animated: true)
+        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
+        self.navigationItem.leftBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
         
         self.imgAvatar.layer.cornerRadius = imgAvatar.frame.size.width / 2
         self.imgAvatar.clipsToBounds = true

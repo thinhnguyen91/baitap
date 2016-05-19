@@ -34,12 +34,18 @@ class LoginVC: UIViewController {
         self.title = "LOGIN"
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login",
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: "login:")
+        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
+       
+        
         self.userText.delegate = self
         self.passText.delegate = self
         self.passText.secureTextEntry = true
