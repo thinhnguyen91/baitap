@@ -26,7 +26,7 @@
                         <constraint firstAttribute="width" constant="196" id="Ldw-2p-ulN"/>
                         <constraint firstAttribute="height" constant="30" id="ahP-TF-xYe"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="New Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="RFP-yi-Xl7">
@@ -36,7 +36,7 @@
                         <constraint firstAttribute="width" constant="196" id="c6N-1k-SOp"/>
                         <constraint firstAttribute="height" constant="30" id="lMq-Gw-smB"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
                 <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="g9G-7Y-dle">
@@ -46,10 +46,10 @@
                         <constraint firstAttribute="height" constant="30" id="9xg-Vu-HFe"/>
                         <constraint firstAttribute="width" constant="196" id="gJW-M7-0hb"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
-                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Apple" translatesAutoresizingMaskIntoConstraints="NO" id="ll0-9E-iZC">
+                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="NAM" translatesAutoresizingMaskIntoConstraints="NO" id="ll0-9E-iZC">
                     <rect key="frame" x="137" y="96" width="100" height="100"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="100" id="A1b-VP-ENH"/>
@@ -63,7 +63,7 @@
                         <constraint firstAttribute="height" constant="30" id="1Bf-gI-jNP"/>
                         <constraint firstAttribute="width" constant="196" id="kxP-5w-Pro"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="14"/>
                     <textInputTraits key="textInputTraits"/>
                 </textField>
             </subviews>
@@ -94,6 +94,6 @@
         </view>
     </objects>
     <resources>
-        <image name="Apple" width="100" height="100"/>
+        <image name="NAM" width="300" height="168"/>
     </resources>
 </document>

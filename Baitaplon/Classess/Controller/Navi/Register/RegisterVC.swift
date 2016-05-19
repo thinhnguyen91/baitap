@@ -10,6 +10,7 @@ import UIKit
 
 class RegisterVC: UIViewController {
     var btn = UIButton()
+    
     @IBOutlet weak var avatar: UIImageView!
     @IBOutlet weak var userRegi: UITextField!
     @IBOutlet weak var passRegi: UITextField!
@@ -18,7 +19,7 @@ class RegisterVC: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "REGISTER"
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
             NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -29,11 +30,13 @@ class RegisterVC: UIViewController {
         self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
             NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
             forState: UIControlState.Normal)
-       self.navigationItem.hidesBackButton = true
-    
+        self.navigationItem.hidesBackButton = true
+        self.navigationItem.setHidesBackButton(true, animated: false)
+        
         //custom button
         btn.setImage(UIImage(named: "Back-25"), forState: .Normal)
         btn.frame = CGRectMake(0, 0, 25, 25)
+        btn.setTitle("", forState: UIControlState.Normal)
         btn.addTarget(self, action: Selector("back:"), forControlEvents: .TouchUpInside)
         let item = UIBarButtonItem()
         item.customView = btn
@@ -47,12 +50,11 @@ class RegisterVC: UIViewController {
         self.newpassRegi.delegate = self
         self.emailRegi.delegate = self
         
-        
     }
-    
     func done(sender: UIBarButtonItem){
         AppDelegate.sharedInstance().loginSuccess()
         print("done")
+        
     }
     func back(sender: UIBarButtonItem){
         self.navigationController?.popViewControllerAnimated(true)
@@ -72,9 +74,9 @@ class RegisterVC: UIViewController {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
+    
 }
 
-extension RegisterVC: UITextFieldDelegate {
+extension RegisterVC: UITextFieldDelegate  {
     
 }

@@ -12,7 +12,7 @@ class CustomNavigationAnimationController: NSObject,UIViewControllerAnimatedTran
 
     var reverse: Bool = false
     func transitionDuration(transitionContext: UIViewControllerContextTransitioning?) -> NSTimeInterval {
-        return 1.5
+        return 0.9
     }
     
     func animateTransition(transitionContext: UIViewControllerContextTransitioning) {

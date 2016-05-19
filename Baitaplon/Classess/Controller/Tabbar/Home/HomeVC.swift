@@ -55,10 +55,10 @@
         }
     }
 
-//    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-//        customNavigationAnimationController.reverse = operation == .Pop
-//        return customNavigationAnimationController
-//    }
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        customNavigationAnimationController.reverse = operation == .Pop
+        return customNavigationAnimationController
+    }
     // MARK: tableview
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         

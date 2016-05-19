@@ -9,14 +9,17 @@
 import UIKit
 import MapKit
 class MapVC: UIViewController {
-
-    @IBOutlet weak var mapView: MKMapView!
-   
+    
+    var place: Place!
     var places = [Place]()
+    let customNavigationAnimationController = CustomNavigationAnimationController()
+    @IBOutlet weak var mapView: MKMapView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         self.title = "MAP"
+        self.navigationController?.delegate = self
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
             NSForegroundColorAttributeName: UIColor.whiteColor()]
@@ -27,14 +30,12 @@ class MapVC: UIViewController {
         //pin
         let annotations = getMapAnnotations()
         mapView.addAnnotations(annotations)
-
+        
     }
-    
     //MARK:- mapview
     func getMapAnnotations() -> [Place] {
         
         var annotations:Array = [Place]()
-        
         for var i = 0 ; i <= 20 ; i++ {
             
             let place = Place(title: "Nha hang \(i)",
@@ -42,31 +43,27 @@ class MapVC: UIViewController {
                 discipline: "Restaurant30",
                 coordinate: CLLocationCoordinate2D(latitude:16.0718911 - 0.01 * Double(i) , longitude:108.2228753 - 0.001 * Double(i) ))
             place.index = i
-            
+            place.avatar = "nhahang\(i%6)"
             annotations.append(place)
         }
-        
         return annotations
     }
     
     func mapView(mapView: MKMapView, viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-        
         if(annotation is MKUserLocation) {
             return nil
         }
-       let reuseId = "Restaurant30"
-        
+        let reuseId = "Restaurant30"
         var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(reuseId)
         
         if anView == nil {
             anView = MKAnnotationView(annotation: annotation, reuseIdentifier: reuseId)
             anView!.image = UIImage(named:"Restaurant30")
             anView!.canShowCallout = true
-
+            
             anView!.calloutOffset = CGPoint(x: 0, y: 0)
             
             let place = annotation as! Place
-            
             let button : UIButton = UIButton(type: UIButtonType.DetailDisclosure)
             button.tag = place.index
             
@@ -77,35 +74,26 @@ class MapVC: UIViewController {
             let buttonlift: UIButton = UIButton(type: UIButtonType.Custom)
             buttonlift.frame.size.width = 44
             buttonlift.frame.size.height = 44
-            buttonlift.setImage(UIImage(named: "nhahang")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
+            buttonlift.setImage(UIImage(named: place.avatar)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
             anView!.leftCalloutAccessoryView = buttonlift
-        }
-        else {
-            
+        } else {
             anView!.annotation = annotation
         }
-        
         return anView
     }
-
     
     func buttonClicked(sender: UIButton){
-       print(sender.tag)
-        
+        print(sender.tag)
         let myshow = ShowVC(nibName: "ShowVC", bundle: nil)
-        
         let item = Place(title: "Nha Hang \(sender.tag) ",
             locationName: "Da nang \(sender.tag) ",
             discipline: "Restaurant30",
             coordinate: CLLocationCoordinate2D(latitude:16.0718911 , longitude:108.2228753 ))
-        
         myshow.place = item
-
         self.navigationController?.pushViewController(myshow, animated: true)
-
     }
-
-       // map zom
+    
+    // map zom
     func zoomToRegion() {
         
         let location = CLLocationCoordinate2D(latitude: 16.0718911, longitude: 108.2228753)
@@ -113,21 +101,23 @@ class MapVC: UIViewController {
         let region = MKCoordinateRegion(center: location, span: span)
         mapView.setRegion(region, animated: true)
     }
-
+    
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
         let blue = CGFloat(rgbValue & 0xFF)/256.0
-        
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
-    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        customNavigationAnimationController.reverse = operation == .Pop
+        return customNavigationAnimationController
+    }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
     
 }
-extension MapVC: MKMapViewDelegate {
+extension MapVC: MKMapViewDelegate,UIViewControllerTransitioningDelegate, UINavigationControllerDelegate  {
     
-    }
+}

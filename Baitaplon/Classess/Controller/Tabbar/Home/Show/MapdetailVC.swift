@@ -14,6 +14,7 @@ class MapdetailVC: UIViewController {
     var myshow: ShowVC!
     var myhome: HomeVC!
     var btn = UIButton()
+    var btn1 = UIButton()
     @IBOutlet weak var mapdetailview: MKMapView!
     
     override func viewDidLoad() {
@@ -29,14 +30,20 @@ class MapdetailVC: UIViewController {
         let item = UIBarButtonItem()
         item.customView = btn
         self.navigationItem.rightBarButtonItem = item
+        
+        btn1.setImage(UIImage(named: "Back-25"), forState: .Normal)
+        btn1.frame = CGRectMake(0, 0, 25, 25)
+        btn1.setTitle("", forState: UIControlState.Normal)
+        btn1.addTarget(self, action: Selector("back:"), forControlEvents: .TouchUpInside)
+        let item1 = UIBarButtonItem()
+        item1.customView = btn1
+        self.navigationItem.leftBarButtonItem = item1
+        
         self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
             NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
             forState: UIControlState.Normal)
-        self.navigationItem.leftBarButtonItem!.setTitleTextAttributes([
-            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
-            forState: UIControlState.Normal)
-        
-        
+        self.navigationItem.hidesBackButton = true
+
         //mapview
         let location = CLLocationCoordinate2D(
             latitude: 16.0755968,
@@ -59,7 +66,9 @@ class MapdetailVC: UIViewController {
     func backhome (sender: UIBarButtonItem){
      self.navigationController?.popToRootViewControllerAnimated(true)
     }
-    
+    func back(sender: UIBarButtonItem){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     
     func mapView(mapView: MKMapView,
         viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
@@ -78,7 +87,7 @@ class MapdetailVC: UIViewController {
             let buttonlift: UIButton = UIButton(type: UIButtonType.Custom)
             buttonlift.frame.size.width = 44
             buttonlift.frame.size.height = 44
-            buttonlift.setImage(UIImage(named: "nhahang")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
+            buttonlift.setImage(UIImage(named: place.avatar)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
             anView!.leftCalloutAccessoryView = buttonlift
             
             return anView
