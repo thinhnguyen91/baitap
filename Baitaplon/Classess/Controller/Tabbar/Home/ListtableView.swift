@@ -18,7 +18,9 @@ class ListtableView: UITableViewCell {
     @IBOutlet weak var startList: UIImageView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        
+     
+        
     }
 
     override func setSelected(selected: Bool, animated: Bool) {

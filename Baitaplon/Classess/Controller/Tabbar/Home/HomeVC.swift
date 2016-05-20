@@ -12,6 +12,8 @@
  class HomeVC: UIViewController {
     var tabBar: UITabBar?
     var places = [Place]()
+    var myShowVC = ShowVC()
+    let customNavigationAnimationController = CustomNavigationAnimationController()
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -19,9 +21,12 @@
         super.viewDidLoad()
         
         self.title = "HOME"
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
         self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.delegate = self
+        
         let nib = UINib(nibName: "ListtableView", bundle: nil)
         tableView.registerNib(nib, forCellReuseIdentifier: "cell")
         
@@ -31,7 +36,7 @@
                 locationName: "Đà Nẵng \(i)",
                 discipline: "",
                 coordinate: CLLocationCoordinate2D(latitude: 0, longitude: 0))
-            place.avatar  = "nhahang"
+            place.avatar  = "nhahang\(i%6)"
             place.start = "star30"
             
             places.append(place)
@@ -49,7 +54,11 @@
             }
         }
     }
-    
+
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        customNavigationAnimationController.reverse = operation == .Pop
+        return customNavigationAnimationController
+    }
     // MARK: tableview
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
@@ -78,7 +87,7 @@
     }
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-        return 84
+        return 72
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
@@ -109,7 +118,7 @@
     
     
  }
- extension HomeVC: UITableViewDelegate,  UITableViewDataSource {
+ extension HomeVC: UITableViewDelegate,  UITableViewDataSource,UIViewControllerTransitioningDelegate, UINavigationControllerDelegate  {
     
  }
  extension UIImage {

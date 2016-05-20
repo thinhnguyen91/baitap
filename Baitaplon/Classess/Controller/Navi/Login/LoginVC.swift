@@ -10,6 +10,7 @@ import UIKit
 
 class LoginVC: UIViewController {
     
+    let customNavigationAnimationController = CustomNavigationAnimationController()
     
     @IBOutlet weak var userText: UITextField!
     @IBOutlet weak var passText: UITextField!
@@ -20,31 +21,38 @@ class LoginVC: UIViewController {
         let forgotVC = ForgotPasswordVC(nibName: "ForgotPasswordVC", bundle: nil)
         self.navigationController?.pushViewController(forgotVC, animated: true)
     }
-    
     @IBAction func registBT(sender: AnyObject) {
         
         let registerVC = RegisterVC(nibName: "RegisterVC", bundle: nil)
         self.navigationController?.pushViewController(registerVC, animated: true)
-        
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "LOGIN"
+        self.navigationController?.delegate = self
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login",
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: "login:")
+        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
+
         self.userText.delegate = self
         self.passText.delegate = self
         self.passText.secureTextEntry = true
-        
-        
+    }
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+        customNavigationAnimationController.reverse = operation == .Pop
+        return customNavigationAnimationController
     }
     
     func login(sender: UIBarButtonItem){
@@ -61,10 +69,8 @@ class LoginVC: UIViewController {
                 let alert = UIAlertController(title: "Error!",
                     message: "Please enter a password!",
                     preferredStyle: UIAlertControllerStyle.Alert)
-            
                 alert.addAction(UIAlertAction(title: "OK",
                     style: UIAlertActionStyle.Default, handler: nil))
-            
                 self.presentViewController(alert, animated: true, completion: nil)
             
         } else if userText.text != user && passText.text == pass {
@@ -72,10 +78,8 @@ class LoginVC: UIViewController {
                 let alert = UIAlertController(title: "Error!",
                     message: "Please enter a email !",
                     preferredStyle: UIAlertControllerStyle.Alert)
-            
                 alert.addAction(UIAlertAction(title: "OK",
                     style: UIAlertActionStyle.Default, handler: nil))
-            
                 self.presentViewController(alert, animated: true, completion: nil)
                 // print("Please enter a email !"
             
@@ -84,10 +88,8 @@ class LoginVC: UIViewController {
                 let alert = UIAlertController(title: "Error!",
                     message: "Please enter a email and password !",
                     preferredStyle: UIAlertControllerStyle.Alert)
-            
                 alert.addAction(UIAlertAction(title: "OK",
                     style: UIAlertActionStyle.Default, handler: nil))
-            
                 self.presentViewController(alert, animated: true, completion: nil)
             
                 // print( "Please enter a email and password !")
@@ -97,10 +99,8 @@ class LoginVC: UIViewController {
                 let alert = UIAlertController(title: "Error!",
                     message: "Please enter a email and password !",
                     preferredStyle: UIAlertControllerStyle.Alert)
-            
                 alert.addAction(UIAlertAction(title: "OK",
                     style: UIAlertActionStyle.Default, handler: nil))
-            
                 self.presentViewController(alert, animated: true, completion: nil)
             
                 // "Please enter a email and password !"
@@ -110,12 +110,9 @@ class LoginVC: UIViewController {
                 let alert = UIAlertController(title: "Error!",
                     message: "Please enter a password!",
                     preferredStyle: UIAlertControllerStyle.Alert)
-            
                 alert.addAction(UIAlertAction(title: "OK",
                     style: UIAlertActionStyle.Default, handler: nil))
-            
                 self.presentViewController(alert, animated: true, completion: nil)
-            
                 // thongbao.text = "Please enter a password !"
             
         } else if passText.text != "" && userText.text == "" {
@@ -123,16 +120,11 @@ class LoginVC: UIViewController {
                 let alert = UIAlertController(title: "Error!",
                     message: "Please enter a email !",
                     preferredStyle: UIAlertControllerStyle.Alert)
-            
                 alert.addAction(UIAlertAction(title: "OK",
                     style: UIAlertActionStyle.Default, handler: nil))
-            
                 self.presentViewController(alert, animated: true, completion: nil)
-            
                 //thongbao.text = "Please enter a email !"
         }
- 
-        
     }
     
     //MARK: toucher textfiled
@@ -160,6 +152,6 @@ class LoginVC: UIViewController {
 
 }
 
-extension LoginVC: UITextFieldDelegate {
+extension LoginVC: UITextFieldDelegate,UIViewControllerTransitioningDelegate, UINavigationControllerDelegate  {
     
 }

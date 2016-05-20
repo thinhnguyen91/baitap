@@ -12,76 +12,89 @@
 import UIKit
 
 class SettingVC: UIViewController {
-    var place: Place!
     var myListtableVC:ListtableView!
+    var arrays: [String] = ["NAM","Follower", "Folowing"]
+    var btn1 = UIButton()
+    let customNavigationAnimationController = CustomNavigationAnimationController()
+    
     @IBOutlet weak var tableSetting: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        self.title = "SETTING"
-        self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
         
+        self.title = "SETTING"
+        self.navigationController?.delegate = self
+        self.navigationController?.navigationBar.translucent = true
+        self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+ 
+        let logButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: "logout:")
+        self.navigationItem.rightBarButtonItem = logButton
+        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!,NSForegroundColorAttributeName: UIColor.whiteColor()],
+            forState: UIControlState.Normal)
         let nib = UINib(nibName: "Cell", bundle: nil)
         tableSetting.registerNib(nib, forCellReuseIdentifier: "Cell")
         
         self.tableSetting.delegate = self
+        
     }
-    
+    func logout(sender: UIBarButtonItem){
+        AppDelegate.sharedInstance().logout()
+    }
+   
     // MARK: tableview
     func numberOfSectionsInTableView(tableView: UITableView) -> Int {
         
         return 1
     }
-    
     func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return 3
+        return arrays.count
     }
-    
     func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
         
         let cell:ListtableView = self.tableSetting.dequeueReusableCellWithIdentifier("Cell") as! ListtableView
-        let item = indexPath.row
-        if item == 0 {
-            let imageview: UIImage = UIImage(named: "Apple180x180")!
-            cell.nameLable.text = "NAM"
-            cell.avatar.image = imageview
-        } else if item == 1 {
-            cell.nameLable.text = "Follower"
-        } else if item == 2 {
-            cell.nameLable.text = "Folowing"
-        }
+        cell.nameLable.text = arrays[indexPath.row]
+        cell.avatar.image = UIImage(named: arrays[indexPath.row])
+        cell.avatar.layer.cornerRadius = cell.avatar.frame.size.width/2
+        cell.avatar.clipsToBounds = true
         return cell
-        
     }
-    
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 48
     }
     
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
-        
         self.tableSetting.deselectRowAtIndexPath(indexPath, animated: true)
-        
         let item = indexPath.row
         if item == 0 {
-        
-            let mydetailvc = DetailVC(nibName: "DetailVC", bundle: nil)
-            mydetailvc.title = "NAM"
-            self.navigationController?.pushViewController(mydetailvc, animated: true)
             
+            let mydetailvc = DetailVC(nibName: "DetailVC", bundle: nil)
+            self.tableSetting.delegate = self
+            let row = arrays[indexPath.row]
+            mydetailvc.title = row
+            mydetailvc.imageName = row
+            self.navigationController?.pushViewController(mydetailvc, animated: true)
+   
         } else if item == 1 {
+            
             let mydetailFowoerl = DetailFollowerVC(nibName: "DetailFollowerVC", bundle: nil)
             mydetailFowoerl.title = "FOLLOWER"
             self.navigationController?.pushViewController(mydetailFowoerl, animated: true)
-        } else if item == 2 {
             
+        } else if item == 2 {
         }
         
-        
         print("Cell \(indexPath.row) of Section \(indexPath.section) ")
-        
+    }
+    
+    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation:
+        UINavigationControllerOperation, fromViewController fromVC:
+        UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
+            
+            customNavigationAnimationController.reverse = operation == .Pop
+            return customNavigationAnimationController
     }
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
@@ -94,8 +107,7 @@ class SettingVC: UIViewController {
         super.didReceiveMemoryWarning()
         
     }
-
 }
-extension SettingVC: UITableViewDelegate,  UITableViewDataSource {
+extension SettingVC: UITableViewDelegate,  UITableViewDataSource,UIViewControllerTransitioningDelegate, UINavigationControllerDelegate  {
     
 }

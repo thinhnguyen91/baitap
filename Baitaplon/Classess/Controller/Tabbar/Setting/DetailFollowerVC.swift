@@ -10,13 +10,25 @@ import UIKit
  import MapKit
 class DetailFollowerVC: UIViewController {
     var places = [Place]()
-    
+   var btn = UIButton()
     @IBOutlet weak var tableDetailFollower: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        self.navigationController?.navigationBar.titleTextAttributes = [NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.title = "DetailFollowerVC"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
+        self.navigationItem.hidesBackButton = true
+        
+        //custom button
+        btn.setImage(UIImage(named: "Back-25"), forState: .Normal)
+        btn.frame = CGRectMake(0, 0, 25, 25)
+        btn.titleLabel?.text = ""
+        btn.addTarget(self, action: Selector("back:"), forControlEvents: .TouchUpInside)
+        let item = UIBarButtonItem()
+        item.customView = btn
+        self.navigationItem.leftBarButtonItem = item
         
         let nib = UINib(nibName: "Cell", bundle: nil)
         tableDetailFollower.registerNib(nib, forCellReuseIdentifier: "Cell")
@@ -32,7 +44,7 @@ class DetailFollowerVC: UIViewController {
             } else {
                 place.name = "Nu"
             }
-            place.avatar  = "Apple180x180"
+            place.avatar  = "image\(i%3)"
             
             places.append(place)
         }
@@ -43,13 +55,20 @@ class DetailFollowerVC: UIViewController {
         
         self.tableDetailFollower.delegate = self
         self.tableDetailFollower.dataSource = self
+        
     }
-    
+    func back(sender: UIBarButtonItem){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
     func action(sender: UIBarButtonItem){
         let alert = UIAlertController(title: "DELETE ALL", message: "Would you like to continue Delete all?", preferredStyle: UIAlertControllerStyle.Alert)
         
         // add the actions (buttons)
-        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler: nil))
+        alert.addAction(UIAlertAction(title: "OK", style: UIAlertActionStyle.Default, handler:{ (actionSheetController) -> Void in
+            print("handle Save action...")
+            self.places.removeAll()
+            self.tableDetailFollower.reloadData()
+        }))
         alert.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.Cancel, handler: nil))
         
         // show the alert
@@ -73,7 +92,10 @@ class DetailFollowerVC: UIViewController {
         let cell:ListtableView = self.tableDetailFollower.dequeueReusableCellWithIdentifier("Cell") as! ListtableView
         let place = places[indexPath.row]
         let imageview: UIImage = UIImage(named: place.avatar)!
+        
         cell.avatar.image = imageview
+        cell.avatar.layer.cornerRadius = cell.avatar.frame.size.width/2
+        cell.avatar.clipsToBounds = true
         cell.nameLable.text = place.name
         
         return cell
@@ -81,6 +103,9 @@ class DetailFollowerVC: UIViewController {
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
         return 48
+    }
+    func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+        self.tableDetailFollower.deselectRowAtIndexPath(indexPath, animated: true)
     }
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {

@@ -13,18 +13,41 @@ class MapdetailVC: UIViewController {
     var mypapvc: MapVC!
     var myshow: ShowVC!
     var myhome: HomeVC!
+    var btn = UIButton()
+    var btn1 = UIButton()
     @IBOutlet weak var mapdetailview: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.title = "MapdetailVC"
+        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+            NSForegroundColorAttributeName: UIColor.whiteColor()]
+         //custom button
+        btn.setImage(UIImage(named: "backhome"), forState: .Normal)
+        btn.frame = CGRectMake(0, 0, 25, 25)
+        btn.addTarget(self, action: Selector("backhome:"), forControlEvents: .TouchUpInside)
+        let item = UIBarButtonItem()
+        item.customView = btn
+        self.navigationItem.rightBarButtonItem = item
         
+        btn1.setImage(UIImage(named: "Back-25"), forState: .Normal)
+        btn1.frame = CGRectMake(0, 0, 25, 25)
+        btn1.setTitle("", forState: UIControlState.Normal)
+        btn1.addTarget(self, action: Selector("back:"), forControlEvents: .TouchUpInside)
+        let item1 = UIBarButtonItem()
+        item1.customView = btn1
+        self.navigationItem.leftBarButtonItem = item1
+        
+        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
+            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
+            forState: UIControlState.Normal)
+        self.navigationItem.hidesBackButton = true
+
         //mapview
-        
         let location = CLLocationCoordinate2D(
             latitude: 16.0755968,
             longitude: 108.2339355 )
-        
         let span = MKCoordinateSpanMake(0.01, 0.01)
         let region = MKCoordinateRegion(center: location, span: span)
         mapdetailview.setRegion(region, animated: true)
@@ -39,6 +62,14 @@ class MapdetailVC: UIViewController {
         mapdetailview.delegate = self
         
     }
+    
+    func backhome (sender: UIBarButtonItem){
+     self.navigationController?.popToRootViewControllerAnimated(true)
+    }
+    func back(sender: UIBarButtonItem){
+        self.navigationController?.popViewControllerAnimated(true)
+    }
+    
     func mapView(mapView: MKMapView,
         viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
             
@@ -56,7 +87,7 @@ class MapdetailVC: UIViewController {
             let buttonlift: UIButton = UIButton(type: UIButtonType.Custom)
             buttonlift.frame.size.width = 44
             buttonlift.frame.size.height = 44
-            buttonlift.setImage(UIImage(named: "nhahang")?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
+            buttonlift.setImage(UIImage(named: place.avatar)?.imageWithRenderingMode(UIImageRenderingMode.AlwaysOriginal), forState:UIControlState.Normal)
             anView!.leftCalloutAccessoryView = buttonlift
             
             return anView

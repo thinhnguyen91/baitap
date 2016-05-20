@@ -7,15 +7,17 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		FAB58EA11CDC3BBF00C1EDFA /* Station.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB58EA01CDC3BBF00C1EDFA /* Station.swift */; settings = {ASSET_TAGS = (); }; };
+		FA63D89A1CE5CA100026C11F /* Cell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA63D8981CE5CA100026C11F /* Cell.xib */; settings = {ASSET_TAGS = (); }; };
+		FA63D89D1CE5D0B70026C11F /* DetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA63D89B1CE5D0B70026C11F /* DetailVC.swift */; settings = {ASSET_TAGS = (); }; };
+		FA63D89E1CE5D0B70026C11F /* DetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA63D89C1CE5D0B70026C11F /* DetailVC.xib */; settings = {ASSET_TAGS = (); }; };
+		FA65B6C01CE5BEAE000489EB /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA65B6BE1CE5BEAE000489EB /* HomeVC.swift */; settings = {ASSET_TAGS = (); }; };
+		FA65B6C11CE5BEAE000489EB /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA65B6BF1CE5BEAE000489EB /* HomeVC.xib */; settings = {ASSET_TAGS = (); }; };
 		FAB58EA31CDC402B00C1EDFA /* stations.plist in Resources */ = {isa = PBXBuildFile; fileRef = FAB58EA21CDC402B00C1EDFA /* stations.plist */; settings = {ASSET_TAGS = (); }; };
 		FAB8409A1CDB5840008F92E1 /* MapdetailVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB840981CDB5840008F92E1 /* MapdetailVC.swift */; settings = {ASSET_TAGS = (); }; };
 		FAB8409B1CDB5840008F92E1 /* MapdetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB840991CDB5840008F92E1 /* MapdetailVC.xib */; settings = {ASSET_TAGS = (); }; };
 		FABA7C9E1CCF18D600289B35 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA7C9D1CCF18D600289B35 /* AppDelegate.swift */; };
 		FABA7CA51CCF18D700289B35 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FABA7CA41CCF18D700289B35 /* Assets.xcassets */; };
 		FABA7CA81CCF18D700289B35 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FABA7CA61CCF18D700289B35 /* LaunchScreen.storyboard */; };
-		FABA7CF91CCF1FEB00289B35 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA7CE91CCF1FEB00289B35 /* HomeVC.swift */; settings = {ASSET_TAGS = (); }; };
-		FABA7CFA1CCF1FEB00289B35 /* HomeVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABA7CEA1CCF1FEB00289B35 /* HomeVC.xib */; settings = {ASSET_TAGS = (); }; };
 		FABA7CFB1CCF1FEB00289B35 /* MapVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA7CEC1CCF1FEB00289B35 /* MapVC.swift */; settings = {ASSET_TAGS = (); }; };
 		FABA7CFC1CCF1FEB00289B35 /* MapVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABA7CED1CCF1FEB00289B35 /* MapVC.xib */; settings = {ASSET_TAGS = (); }; };
 		FABA7CFD1CCF1FEB00289B35 /* SettingVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA7CEF1CCF1FEB00289B35 /* SettingVC.swift */; settings = {ASSET_TAGS = (); }; };
@@ -28,16 +30,23 @@
 		FABA7D151CCF23B000289B35 /* LoginVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABA7D131CCF23B000289B35 /* LoginVC.xib */; settings = {ASSET_TAGS = (); }; };
 		FABA7D191CCF265500289B35 /* FovariteVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FABA7D171CCF265500289B35 /* FovariteVC.swift */; settings = {ASSET_TAGS = (); }; };
 		FABA7D1A1CCF265500289B35 /* FovariteVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FABA7D181CCF265500289B35 /* FovariteVC.xib */; settings = {ASSET_TAGS = (); }; };
+		FAEA7F021CE9B7A90077FB81 /* DetailFollowerVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEA7F001CE9B7A90077FB81 /* DetailFollowerVC.swift */; settings = {ASSET_TAGS = (); }; };
+		FAEA7F031CE9B7A90077FB81 /* DetailFollowerVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEA7F011CE9B7A90077FB81 /* DetailFollowerVC.xib */; settings = {ASSET_TAGS = (); }; };
 		FAF4F7A71CE41E58009FD9C0 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAF4F7A61CE41E58009FD9C0 /* Place.swift */; settings = {ASSET_TAGS = (); }; };
 		FAFA2EC01CD0732B003B9D7B /* ListtableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2EBE1CD0732B003B9D7B /* ListtableView.swift */; settings = {ASSET_TAGS = (); }; };
 		FAFA2EC11CD0732B003B9D7B /* ListtableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFA2EBF1CD0732B003B9D7B /* ListtableView.xib */; settings = {ASSET_TAGS = (); }; };
 		FAFA2EC71CD0B7CF003B9D7B /* SingletionClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2EC61CD0B7CF003B9D7B /* SingletionClass.swift */; settings = {ASSET_TAGS = (); }; };
 		FAFA2ECB1CD0CCC3003B9D7B /* ShowVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFA2EC91CD0CCC3003B9D7B /* ShowVC.swift */; settings = {ASSET_TAGS = (); }; };
 		FAFA2ECC1CD0CCC3003B9D7B /* ShowVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAFA2ECA1CD0CCC3003B9D7B /* ShowVC.xib */; settings = {ASSET_TAGS = (); }; };
+		FAFED6421CEC1E2A00ADA060 /* CustomNavigationAnimationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAFED6411CEC1E2A00ADA060 /* CustomNavigationAnimationController.swift */; settings = {ASSET_TAGS = (); }; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		FAB58EA01CDC3BBF00C1EDFA /* Station.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Station.swift; sourceTree = "<group>"; };
+		FA63D8981CE5CA100026C11F /* Cell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = Cell.xib; sourceTree = "<group>"; };
+		FA63D89B1CE5D0B70026C11F /* DetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailVC.swift; sourceTree = "<group>"; };
+		FA63D89C1CE5D0B70026C11F /* DetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailVC.xib; sourceTree = "<group>"; };
+		FA65B6BE1CE5BEAE000489EB /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		FA65B6BF1CE5BEAE000489EB /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		FAB58EA21CDC402B00C1EDFA /* stations.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = stations.plist; sourceTree = "<group>"; };
 		FAB840981CDB5840008F92E1 /* MapdetailVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MapdetailVC.swift; path = Baitaplon/Classess/Controller/Tabbar/Home/Show/MapdetailVC.swift; sourceTree = SOURCE_ROOT; };
 		FAB840991CDB5840008F92E1 /* MapdetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = MapdetailVC.xib; path = Baitaplon/Classess/Controller/Tabbar/Home/Show/MapdetailVC.xib; sourceTree = SOURCE_ROOT; };
@@ -46,8 +55,6 @@
 		FABA7CA41CCF18D700289B35 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Assets.xcassets; path = ../Assets.xcassets; sourceTree = "<group>"; };
 		FABA7CA71CCF18D700289B35 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FABA7CA91CCF18D700289B35 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; name = Info.plist; path = ../Info.plist; sourceTree = "<group>"; };
-		FABA7CE91CCF1FEB00289B35 /* HomeVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
-		FABA7CEA1CCF1FEB00289B35 /* HomeVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeVC.xib; sourceTree = "<group>"; };
 		FABA7CEC1CCF1FEB00289B35 /* MapVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapVC.swift; sourceTree = "<group>"; };
 		FABA7CED1CCF1FEB00289B35 /* MapVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MapVC.xib; sourceTree = "<group>"; };
 		FABA7CEF1CCF1FEB00289B35 /* SettingVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SettingVC.swift; sourceTree = "<group>"; };
@@ -60,12 +67,15 @@
 		FABA7D131CCF23B000289B35 /* LoginVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = LoginVC.xib; sourceTree = "<group>"; };
 		FABA7D171CCF265500289B35 /* FovariteVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FovariteVC.swift; sourceTree = "<group>"; };
 		FABA7D181CCF265500289B35 /* FovariteVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FovariteVC.xib; sourceTree = "<group>"; };
-		FAF4F7A61CE41E58009FD9C0 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
+		FAEA7F001CE9B7A90077FB81 /* DetailFollowerVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailFollowerVC.swift; sourceTree = "<group>"; };
+		FAEA7F011CE9B7A90077FB81 /* DetailFollowerVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = DetailFollowerVC.xib; sourceTree = "<group>"; };
+		FAF4F7A61CE41E58009FD9C0 /* Place.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = Place.swift; path = ../Controller/Tabbar/Home/Place.swift; sourceTree = "<group>"; };
 		FAFA2EBE1CD0732B003B9D7B /* ListtableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ListtableView.swift; sourceTree = "<group>"; };
 		FAFA2EBF1CD0732B003B9D7B /* ListtableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ListtableView.xib; sourceTree = "<group>"; };
 		FAFA2EC61CD0B7CF003B9D7B /* SingletionClass.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = SingletionClass.swift; path = ../SingletionClass.swift; sourceTree = "<group>"; };
 		FAFA2EC91CD0CCC3003B9D7B /* ShowVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowVC.swift; path = Baitaplon/Classess/Controller/Tabbar/Home/Show/ShowVC.swift; sourceTree = SOURCE_ROOT; };
 		FAFA2ECA1CD0CCC3003B9D7B /* ShowVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; name = ShowVC.xib; path = Baitaplon/Classess/Controller/Tabbar/Home/Show/ShowVC.xib; sourceTree = SOURCE_ROOT; };
+		FAFED6411CEC1E2A00ADA060 /* CustomNavigationAnimationController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomNavigationAnimationController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,11 +173,11 @@
 		FABA7CE81CCF1FEB00289B35 /* Home */ = {
 			isa = PBXGroup;
 			children = (
-				FAF4F7A61CE41E58009FD9C0 /* Place.swift */,
-				FABA7CE91CCF1FEB00289B35 /* HomeVC.swift */,
-				FABA7CEA1CCF1FEB00289B35 /* HomeVC.xib */,
+				FA65B6BE1CE5BEAE000489EB /* HomeVC.swift */,
+				FA65B6BF1CE5BEAE000489EB /* HomeVC.xib */,
 				FAFA2EBE1CD0732B003B9D7B /* ListtableView.swift */,
 				FAFA2EBF1CD0732B003B9D7B /* ListtableView.xib */,
+				FA63D8981CE5CA100026C11F /* Cell.xib */,
 				FAFA2EC81CD0CB9E003B9D7B /* Show */,
 			);
 			path = Home;
@@ -178,7 +188,6 @@
 			children = (
 				FABA7CEC1CCF1FEB00289B35 /* MapVC.swift */,
 				FABA7CED1CCF1FEB00289B35 /* MapVC.xib */,
-				FAB58EA01CDC3BBF00C1EDFA /* Station.swift */,
 			);
 			path = Map;
 			sourceTree = "<group>";
@@ -188,6 +197,10 @@
 			children = (
 				FABA7CEF1CCF1FEB00289B35 /* SettingVC.swift */,
 				FABA7CF01CCF1FEB00289B35 /* SettingVC.xib */,
+				FA63D89B1CE5D0B70026C11F /* DetailVC.swift */,
+				FA63D89C1CE5D0B70026C11F /* DetailVC.xib */,
+				FAEA7F001CE9B7A90077FB81 /* DetailFollowerVC.swift */,
+				FAEA7F011CE9B7A90077FB81 /* DetailFollowerVC.xib */,
 			);
 			path = Setting;
 			sourceTree = "<group>";
@@ -202,6 +215,8 @@
 		FABA7D001CCF209100289B35 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				FAF4F7A61CE41E58009FD9C0 /* Place.swift */,
+				FAFED6411CEC1E2A00ADA060 /* CustomNavigationAnimationController.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -321,15 +336,18 @@
 			files = (
 				FABA7CFE1CCF1FEB00289B35 /* SettingVC.xib in Resources */,
 				FAFA2ECC1CD0CCC3003B9D7B /* ShowVC.xib in Resources */,
+				FA65B6C11CE5BEAE000489EB /* HomeVC.xib in Resources */,
+				FA63D89A1CE5CA100026C11F /* Cell.xib in Resources */,
+				FA63D89E1CE5D0B70026C11F /* DetailVC.xib in Resources */,
 				FABA7D111CCF239100289B35 /* ForgotPasswordVC.xib in Resources */,
 				FABA7CA81CCF18D700289B35 /* LaunchScreen.storyboard in Resources */,
 				FABA7CA51CCF18D700289B35 /* Assets.xcassets in Resources */,
 				FABA7D0C1CCF22F300289B35 /* RegisterVC.xib in Resources */,
 				FAB8409B1CDB5840008F92E1 /* MapdetailVC.xib in Resources */,
 				FABA7D1A1CCF265500289B35 /* FovariteVC.xib in Resources */,
+				FAEA7F031CE9B7A90077FB81 /* DetailFollowerVC.xib in Resources */,
 				FABA7D151CCF23B000289B35 /* LoginVC.xib in Resources */,
 				FABA7CFC1CCF1FEB00289B35 /* MapVC.xib in Resources */,
-				FABA7CFA1CCF1FEB00289B35 /* HomeVC.xib in Resources */,
 				FAFA2EC11CD0732B003B9D7B /* ListtableView.xib in Resources */,
 				FAB58EA31CDC402B00C1EDFA /* stations.plist in Resources */,
 			);
@@ -342,12 +360,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FABA7CF91CCF1FEB00289B35 /* HomeVC.swift in Sources */,
 				FABA7D101CCF239100289B35 /* ForgotPasswordVC.swift in Sources */,
+				FAEA7F021CE9B7A90077FB81 /* DetailFollowerVC.swift in Sources */,
 				FAB8409A1CDB5840008F92E1 /* MapdetailVC.swift in Sources */,
+				FAFED6421CEC1E2A00ADA060 /* CustomNavigationAnimationController.swift in Sources */,
 				FAFA2EC01CD0732B003B9D7B /* ListtableView.swift in Sources */,
 				FABA7D141CCF23B000289B35 /* LoginVC.swift in Sources */,
-				FAB58EA11CDC3BBF00C1EDFA /* Station.swift in Sources */,
+				FA65B6C01CE5BEAE000489EB /* HomeVC.swift in Sources */,
 				FABA7CFD1CCF1FEB00289B35 /* SettingVC.swift in Sources */,
 				FABA7D191CCF265500289B35 /* FovariteVC.swift in Sources */,
 				FAF4F7A71CE41E58009FD9C0 /* Place.swift in Sources */,
@@ -356,6 +375,7 @@
 				FAFA2ECB1CD0CCC3003B9D7B /* ShowVC.swift in Sources */,
 				FABA7CFB1CCF1FEB00289B35 /* MapVC.swift in Sources */,
 				FABA7C9E1CCF18D600289B35 /* AppDelegate.swift in Sources */,
+				FA63D89D1CE5D0B70026C11F /* DetailVC.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
