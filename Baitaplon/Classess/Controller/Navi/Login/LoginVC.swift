@@ -10,8 +10,6 @@ import UIKit
 
 class LoginVC: UIViewController {
     
-    let customNavigationAnimationController = CustomNavigationAnimationController()
-    
     @IBOutlet weak var userText: UITextField!
     @IBOutlet weak var passText: UITextField!
     
@@ -31,28 +29,19 @@ class LoginVC: UIViewController {
         super.viewDidLoad()
         
         self.title = "LOGIN"
-        self.navigationController?.delegate = self
         self.navigationController?.navigationBar.translucent = false
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+        self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Login",
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: "login:")
-        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
-            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
-            forState: UIControlState.Normal)
 
         self.userText.delegate = self
         self.passText.delegate = self
         self.passText.secureTextEntry = true
-    }
-    
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        customNavigationAnimationController.reverse = operation == .Pop
-        return customNavigationAnimationController
     }
     
     func login(sender: UIBarButtonItem){
@@ -152,6 +141,6 @@ class LoginVC: UIViewController {
 
 }
 
-extension LoginVC: UITextFieldDelegate,UIViewControllerTransitioningDelegate, UINavigationControllerDelegate  {
+extension LoginVC: UITextFieldDelegate{
     
 }

@@ -12,16 +12,14 @@ class MapVC: UIViewController {
     
     var place: Place!
     var places = [Place]()
-    let customNavigationAnimationController = CustomNavigationAnimationController()
     @IBOutlet weak var mapView: MKMapView!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "MAP"
-        self.navigationController?.delegate = self
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+        self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         mapView.delegate = self
@@ -88,7 +86,7 @@ class MapVC: UIViewController {
         let item = Place(title: "Nha Hang \(sender.tag) ",
             locationName: "Da nang \(sender.tag) ",
             discipline: "Restaurant30",
-            coordinate: CLLocationCoordinate2D(latitude:16.0718911 , longitude:108.2228753 ))
+            coordinate: CLLocationCoordinate2D(latitude:16.0356373, longitude:108.2102444 ))
         myshow.place = item
         self.navigationController?.pushViewController(myshow, animated: true)
     }
@@ -108,16 +106,13 @@ class MapVC: UIViewController {
         let blue = CGFloat(rgbValue & 0xFF)/256.0
         return UIColor(red:red, green:green, blue:blue, alpha:1.0)
     }
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation: UINavigationControllerOperation, fromViewController fromVC: UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-        customNavigationAnimationController.reverse = operation == .Pop
-        return customNavigationAnimationController
-    }
+
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         
     }
     
 }
-extension MapVC: MKMapViewDelegate,UIViewControllerTransitioningDelegate, UINavigationControllerDelegate  {
+extension MapVC: MKMapViewDelegate  {
     
 }

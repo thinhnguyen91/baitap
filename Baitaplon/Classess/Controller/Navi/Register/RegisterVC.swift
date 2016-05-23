@@ -16,22 +16,26 @@ class RegisterVC: UIViewController {
     @IBOutlet weak var passRegi: UITextField!
     @IBOutlet weak var newpassRegi: UITextField!
     @IBOutlet weak var emailRegi: UITextField!
+    @IBOutlet weak var scrollView: UIScrollView!
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "REGISTER"
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+        self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done",
             style: UIBarButtonItemStyle.Plain,
             target: self,
             action: "done:")
-        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
-            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
-            forState: UIControlState.Normal)
         self.navigationItem.hidesBackButton = true
         self.navigationItem.setHidesBackButton(true, animated: false)
+        
+        scrollView.showsHorizontalScrollIndicator = false
+        scrollView.scrollEnabled = true
+        scrollView.delegate = self
+        scrollView.contentSize.height = 700
         
         //custom button
         btn.setImage(UIImage(named: "Back-25"), forState: .Normal)
@@ -77,6 +81,6 @@ class RegisterVC: UIViewController {
     
 }
 
-extension RegisterVC: UITextFieldDelegate  {
+extension RegisterVC: UITextFieldDelegate, UIScrollViewDelegate  {
     
 }

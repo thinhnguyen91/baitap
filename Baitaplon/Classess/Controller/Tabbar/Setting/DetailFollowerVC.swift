@@ -7,16 +7,17 @@
 //
 
 import UIKit
- import MapKit
+import MapKit
 class DetailFollowerVC: UIViewController {
     var places = [Place]()
-   var btn = UIButton()
+    var list: ListtableView!
+    var btn = UIButton()
     @IBOutlet weak var tableDetailFollower: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "DetailFollowerVC"
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+        self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
         self.navigationItem.hidesBackButton = true
@@ -44,12 +45,12 @@ class DetailFollowerVC: UIViewController {
             } else {
                 place.name = "Nu"
             }
-            place.avatar  = "image\(i%3)"
-            
+            place.avatar  = "nhahang\(i%6)"
+            place.phone = 0124557635+i
             places.append(place)
         }
         
-        let barButton = UIBarButtonItem(image: UIImage(named: "Delete Filled-30"), landscapeImagePhone: nil, style: .Done, target: self, action:  Selector("action:"))
+        let barButton = UIBarButtonItem(image: UIImage(named: "delete25"), landscapeImagePhone: nil, style: .Done, target: self, action:  Selector("action:"))
         
         self.navigationItem.rightBarButtonItem = barButton
         
@@ -94,10 +95,9 @@ class DetailFollowerVC: UIViewController {
         let imageview: UIImage = UIImage(named: place.avatar)!
         
         cell.avatar.image = imageview
-        cell.avatar.layer.cornerRadius = cell.avatar.frame.size.width/2
-        cell.avatar.clipsToBounds = true
         cell.nameLable.text = place.name
-        
+        cell.phoneLable.text = String(place.phone)
+        //cell.phoneLable.hidden = true
         return cell
     }
     
@@ -106,6 +106,12 @@ class DetailFollowerVC: UIViewController {
     }
     func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         self.tableDetailFollower.deselectRowAtIndexPath(indexPath, animated: true)
+        
+        let item = places[indexPath.row]
+        let myShowDetailVC = ShowDetailVC(nibName: "ShowDetailVC", bundle: nil)
+        myShowDetailVC.place = item
+        self.navigationController?.pushViewController(myShowDetailVC, animated: true)
+        
     }
     func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
@@ -115,11 +121,11 @@ class DetailFollowerVC: UIViewController {
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
-       
+        
     }
-
-
-}
-extension DetailFollowerVC: UITableViewDelegate,  UITableViewDataSource {
     
+    
+}
+extension DetailFollowerVC: UITableViewDelegate,  UITableViewDataSource{
+ 
 }

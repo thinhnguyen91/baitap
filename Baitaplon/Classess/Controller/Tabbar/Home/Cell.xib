@@ -15,8 +15,8 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LoW-5j-1fI">
-                        <rect key="frame" x="56" y="10" width="238" height="26"/>
-                        <fontDescription key="fontDescription" name="MarkerFelt-Wide" family="Marker Felt" pointSize="19"/>
+                        <rect key="frame" x="56" y="8" width="238" height="26"/>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="19"/>
                         <color key="textColor" red="1" green="0.5" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -27,22 +27,35 @@
                             <constraint firstAttribute="width" constant="40" id="gFg-nt-XDW"/>
                         </constraints>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u7P-6M-6de">
+                        <rect key="frame" x="56" y="31" width="134" height="11"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="134" id="pua-hV-apc"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="boldSystem" pointSize="9"/>
+                        <color key="textColor" red="0.5" green="0.0" blue="0.5" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="HHU-mi-voj" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="-6" id="4cO-Ga-3WU"/>
+                    <constraint firstItem="u7P-6M-6de" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="23" id="75c-Tc-sq0"/>
+                    <constraint firstItem="LoW-5j-1fI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" id="Cx6-Jj-Etn"/>
+                    <constraint firstItem="u7P-6M-6de" firstAttribute="bottom" secondItem="HHU-mi-voj" secondAttribute="bottom" id="H2i-4B-Wg4"/>
+                    <constraint firstItem="LoW-5j-1fI" firstAttribute="leading" secondItem="HHU-mi-voj" secondAttribute="trailing" constant="8" symbolic="YES" id="Msp-vp-hPS"/>
                     <constraint firstItem="HHU-mi-voj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="O61-Ld-B2d"/>
-                    <constraint firstItem="LoW-5j-1fI" firstAttribute="leading" secondItem="HHU-mi-voj" secondAttribute="trailing" constant="8" symbolic="YES" id="VxJ-r7-5gp"/>
-                    <constraint firstItem="LoW-5j-1fI" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="2" id="YGD-5M-7cU"/>
+                    <constraint firstItem="u7P-6M-6de" firstAttribute="leading" secondItem="LoW-5j-1fI" secondAttribute="leading" id="OTa-Pi-SKc"/>
                     <constraint firstAttribute="bottomMargin" secondItem="HHU-mi-voj" secondAttribute="bottom" constant="-6" id="Yn5-SD-Bu7"/>
-                    <constraint firstAttribute="trailingMargin" secondItem="LoW-5j-1fI" secondAttribute="trailing" constant="18" id="mvp-CY-RzP"/>
-                    <constraint firstItem="LoW-5j-1fI" firstAttribute="bottom" secondItem="H2p-sc-9uM" secondAttribute="bottomMargin" id="tU9-2o-ANC"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="LoW-5j-1fI" secondAttribute="bottom" constant="2" id="lPw-qw-ucZ"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="LoW-5j-1fI" secondAttribute="trailing" constant="18" id="nOm-UP-Pz6"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="avatar" destination="HHU-mi-voj" id="gnM-a7-KtO"/>
                 <outlet property="nameLable" destination="LoW-5j-1fI" id="8hf-a1-f97"/>
+                <outlet property="phoneLable" destination="u7P-6M-6de" id="BbO-Mw-pQO"/>
             </connections>
-            <point key="canvasLocation" x="365" y="168.5"/>
+            <point key="canvasLocation" x="335" y="173.5"/>
         </tableViewCell>
     </objects>
 </document>

@@ -21,10 +21,10 @@ class MapdetailVC: UIViewController {
         super.viewDidLoad()
         
         self.title = "MapdetailVC"
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+        self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor()]
          //custom button
-        btn.setImage(UIImage(named: "backhome"), forState: .Normal)
+        btn.setImage(UIImage(named: "List-25"), forState: .Normal)
         btn.frame = CGRectMake(0, 0, 25, 25)
         btn.addTarget(self, action: Selector("backhome:"), forControlEvents: .TouchUpInside)
         let item = UIBarButtonItem()
@@ -38,28 +38,89 @@ class MapdetailVC: UIViewController {
         let item1 = UIBarButtonItem()
         item1.customView = btn1
         self.navigationItem.leftBarButtonItem = item1
-        
-        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
-            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
-            forState: UIControlState.Normal)
         self.navigationItem.hidesBackButton = true
 
-        //mapview
-        let location = CLLocationCoordinate2D(
-            latitude: 16.0755968,
-            longitude: 108.2339355 )
-        let span = MKCoordinateSpanMake(0.01, 0.01)
-        let region = MKCoordinateRegion(center: location, span: span)
-        mapdetailview.setRegion(region, animated: true)
-        
-        let annotation = MKPointAnnotation()
-        annotation.coordinate = location
-        
-        annotation.title = place.title
-        annotation.subtitle = place.subtitle
-        
-        mapdetailview.addAnnotation(annotation)
+//        //mapview
+//        let location = CLLocationCoordinate2D(
+//            latitude: 16.071685,
+//            longitude: 108.219485)
+//        let span = MKCoordinateSpanMake(0.01, 0.01)
+//        let region = MKCoordinateRegion(center: location, span: span)
+//        mapdetailview.setRegion(region, animated: true)
+//        
+//        let annotation = MKPointAnnotation()
+//        annotation.coordinate = location
+//        
+//        annotation.title = place.title
+//        annotation.subtitle = place.subtitle
+//        
+//        mapdetailview.addAnnotation(annotation)
+//       
+//        
+        self.zoomToRegion()
+        // 1.
         mapdetailview.delegate = self
+        
+        // 2.
+        // toa do cho minh
+        let sourceLocation = CLLocationCoordinate2D(latitude: 16.072637, longitude:108.232218)
+        //toa do nha hang
+        let destinationLocation = CLLocationCoordinate2D(latitude: 16.065422, longitude: 108.220025)
+        
+        // 3.
+        let sourcePlacemark = MKPlacemark(coordinate: sourceLocation, addressDictionary: nil)
+        let destinationPlacemark = MKPlacemark(coordinate: destinationLocation, addressDictionary: nil)
+        
+        // 4.
+        let sourceMapItem = MKMapItem(placemark: sourcePlacemark)
+        let destinationMapItem = MKMapItem(placemark: destinationPlacemark)
+        
+        // 5.
+        let sourceAnnotation = MKPointAnnotation()
+        sourceAnnotation.title = "THINH"
+        
+        if let location = sourcePlacemark.location {
+            sourceAnnotation.coordinate = location.coordinate
+        }
+        
+        let destinationAnnotation = MKPointAnnotation()
+        destinationAnnotation.title = place.title
+        destinationAnnotation.subtitle = place.subtitle
+       
+        if let location = destinationPlacemark.location {
+            destinationAnnotation.coordinate = location.coordinate
+        }
+        
+        // 6.
+        self.mapdetailview.showAnnotations([sourceAnnotation,destinationAnnotation], animated: true )
+        
+        // 7.
+        let directionRequest = MKDirectionsRequest()
+        directionRequest.source = sourceMapItem
+        directionRequest.destination = destinationMapItem
+        directionRequest.transportType = .Automobile
+        
+        // Calculate the direction
+        let directions = MKDirections(request: directionRequest)
+        
+        // 8.
+        directions.calculateDirectionsWithCompletionHandler {
+            (response, error) -> Void in
+            
+            guard let response = response else {
+                if let error = error {
+                    print("Error: \(error)")
+                }
+                
+                return
+            }
+            
+            let route = response.routes[0]
+            self.mapdetailview.addOverlay((route.polyline), level: MKOverlayLevel.AboveRoads)
+            
+            let rect = route.polyline.boundingMapRect
+            self.mapdetailview.setRegion(MKCoordinateRegionForMapRect(rect), animated: true)
+        }
         
     }
     
@@ -72,15 +133,15 @@ class MapdetailVC: UIViewController {
     
     func mapView(mapView: MKMapView,
         viewForAnnotation annotation: MKAnnotation) -> MKAnnotationView? {
-            
-            let annotationReuseId = "Restaurant30"
+          
+            let annotationReuseId = "thinh"
             var anView = mapView.dequeueReusableAnnotationViewWithIdentifier(annotationReuseId)
             if anView == nil {
                 anView = MKAnnotationView(annotation: annotation, reuseIdentifier: annotationReuseId)
             } else {
                 anView!.annotation = annotation
             }
-            anView!.image = UIImage(named: "Restaurant30")
+            anView!.image = UIImage(named: "map25")
             anView!.backgroundColor = UIColor.clearColor()
             anView!.canShowCallout = true
             
@@ -92,6 +153,23 @@ class MapdetailVC: UIViewController {
             
             return anView
             
+    }
+ 
+    func mapView(mapView: MKMapView, rendererForOverlay overlay: MKOverlay) -> MKOverlayRenderer {
+        let renderer = MKPolylineRenderer(overlay: overlay)
+        renderer.strokeColor = UIColor.orangeColor()
+        renderer.lineWidth = 4.0
+        
+        return renderer
+    }
+    
+    // map zom
+    func zoomToRegion() {
+        
+        let location = CLLocationCoordinate2D(latitude: 16.072096, longitude: 108.226992)
+        let span = MKCoordinateSpanMake(0.05, 0.01)
+        let region = MKCoordinateRegion(center: location, span: span)
+        mapdetailview.setRegion(region, animated: true)
     }
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()

@@ -12,24 +12,19 @@ class SettingVC: UIViewController {
     var myListtableVC:ListtableView!
     var arrays: [String] = ["NAM","Follower", "Folowing"]
     var btn1 = UIButton()
-    let customNavigationAnimationController = CustomNavigationAnimationController()
     
     @IBOutlet weak var tableSetting: UITableView!
     override func viewDidLoad() {
         super.viewDidLoad()
         
         self.title = "SETTING"
-        self.navigationController?.delegate = self
-        self.navigationController?.navigationBar.translucent = true
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+        self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor()]
+        self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
  
         let logButton : UIBarButtonItem = UIBarButtonItem(title: "Logout", style: UIBarButtonItemStyle.Plain, target: self, action: "logout:")
         self.navigationItem.rightBarButtonItem = logButton
-        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
-            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!,NSForegroundColorAttributeName: UIColor.whiteColor()],
-            forState: UIControlState.Normal)
         let nib = UINib(nibName: "Cell", bundle: nil)
         tableSetting.registerNib(nib, forCellReuseIdentifier: "Cell")
         
@@ -85,14 +80,6 @@ class SettingVC: UIViewController {
         
         print("Cell \(indexPath.row) of Section \(indexPath.section) ")
     }
-    
-    func navigationController(navigationController: UINavigationController, animationControllerForOperation operation:
-        UINavigationControllerOperation, fromViewController fromVC:
-        UIViewController, toViewController toVC: UIViewController) -> UIViewControllerAnimatedTransitioning? {
-            
-            customNavigationAnimationController.reverse = operation == .Pop
-            return customNavigationAnimationController
-    }
     func uicolorFromHex(rgbValue:UInt32)->UIColor{
         let red = CGFloat((rgbValue & 0xFF0000) >> 16)/256.0
         let green = CGFloat((rgbValue & 0xFF00) >> 8)/256.0
@@ -105,6 +92,6 @@ class SettingVC: UIViewController {
         
     }
 }
-extension SettingVC: UITableViewDelegate,  UITableViewDataSource,UIViewControllerTransitioningDelegate, UINavigationControllerDelegate  {
+extension SettingVC: UITableViewDelegate,  UITableViewDataSource {
     
 }

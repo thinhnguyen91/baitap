@@ -10,7 +10,8 @@ import UIKit
 
 class ListtableView: UITableViewCell {
     @IBOutlet weak var avatar: UIImageView!
-    @IBOutlet weak var nameLable: UILabel!
+    @IBOutlet weak var nameLable: UILabel!  
+    @IBOutlet weak var phoneLable: UILabel!
 
     @IBOutlet weak var imageList: UIImageView!
     @IBOutlet weak var nameList: UILabel!

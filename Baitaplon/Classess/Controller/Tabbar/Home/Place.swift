@@ -14,6 +14,7 @@ class Place: NSObject, MKAnnotation{
     var start: String = ""
     var startyellow: String = ""
     var name: String = ""
+    var phone: Int = 0
     
     var image: UIImage?
     let title: String?

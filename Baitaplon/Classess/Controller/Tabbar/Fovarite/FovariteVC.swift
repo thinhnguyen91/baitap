@@ -19,7 +19,7 @@ class FovariteVC: UIViewController {
         
         self.title = "FOVARITE"
         self.navigationController?.navigationBar.barTintColor = uicolorFromHex(16729344)
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+        self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor()]
         
         let nib = UINib(nibName: "ListtableView", bundle: nil)

@@ -79,12 +79,9 @@ class ShowVC: UIViewController {
         }
 
         self.title = "SHOW"
-        self.navigationController?.navigationBar.titleTextAttributes = [ NSFontAttributeName: UIFont(name: "MarkerFelt-Thin", size: 20)!,
+        self.navigationController?.navigationBar.titleTextAttributes = [
             NSForegroundColorAttributeName: UIColor.whiteColor()]
         self.navigationController?.navigationBar.tintColor = UIColor.whiteColor()
-        self.navigationItem.rightBarButtonItem!.setTitleTextAttributes([
-            NSFontAttributeName : UIFont(name: "MarkerFelt-Thin", size: 15)!],
-            forState: UIControlState.Normal)
         self.navigationItem.hidesBackButton = true
         self.navigationItem.setHidesBackButton(true, animated: false)
         
@@ -146,9 +143,8 @@ class ShowVC: UIViewController {
     //map
     func getmap(){
         let location = CLLocationCoordinate2D(
-            latitude: 16.0755968,
-            longitude: 108.2339355 )
-
+            latitude: 16.071685,
+            longitude: 108.219485)
         let span = MKCoordinateSpanMake(0.009, 0.009)
         let region = MKCoordinateRegion(center: location, span: span)
         mapview.setRegion(region, animated: true)
